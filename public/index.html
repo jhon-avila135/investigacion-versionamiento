@@ -81,6 +81,7 @@
         <li><strong><a href="https://github.com/jhon-avila135/investigacion-versionamiento/pull/1">PR #1</a> · flujo normal.</strong> Enlace a Confluence y QR del sitio. validate en verde, merge y publicación en 49 segundos.</li>
         <li><strong><a href="https://github.com/jhon-avila135/investigacion-versionamiento/pull/2">PR #2</a> · corregimos el validador.</strong> Al preparar la prueba de error vimos que el preset standard no revisaba accesibilidad; agregamos el preset a11y.</li>
         <li><strong><a href="https://github.com/jhon-avila135/investigacion-versionamiento/pull/3">PR #3</a> · error provocado.</strong> Quitamos el texto alternativo del QR: validate falló y GitHub bloqueó el merge. Lo dejamos abierto como evidencia.</li>
+        <li><strong>GitLab Pages.</strong> Los tres primeros pipelines fallaron porque GitLab exige verificar la identidad antes de usar sus runners. Después de verificarla, el pipeline pasó en 47 segundos. Además, quitamos el dominio aleatorio y abrimos el acceso a Pages para todos, porque por defecto solo lo veían los miembros del proyecto.</li>
         <li><strong>Mediciones.</strong> Con scripts/medir.sh: el script mira la versión publicada cada 5 segundos y guarda cuánto tardó en cambiar.</li>
       </ol>
     </section>
@@ -100,7 +101,7 @@
             <tr><td>2</td><td>Construir</td><td>Sitio con inicio, investigación y presentación</td><td><span class="estado hecho">Hecho</span></td></tr>
             <tr><td>3</td><td>Versionar</td><td>Repositorio con dos remotos</td><td><span class="estado hecho">Hecho</span></td></tr>
             <tr><td>4</td><td>Desplegar en GitHub</td><td>GitHub Actions hacia GitHub Pages</td><td><span class="estado hecho">Hecho</span></td></tr>
-            <tr><td>5</td><td>Desplegar en GitLab</td><td>GitLab CI hacia GitLab Pages</td><td><span class="estado curso">En curso</span></td></tr>
+            <tr><td>5</td><td>Desplegar en GitLab</td><td>GitLab CI hacia GitLab Pages</td><td><span class="estado hecho">Hecho</span></td></tr>
             <tr><td>6</td><td>Proteger</td><td>Reglas en main, PR normal y error provocado</td><td><span class="estado hecho">Hecho</span></td></tr>
             <tr><td>7</td><td>Medir</td><td>5 despliegues por plataforma por integrante</td><td><span class="estado curso">En curso</span></td></tr>
             <tr><td>8</td><td>Cerrar</td><td>PDF, QR y versión v1.0.0</td><td><span class="estado pendiente">Pendiente</span></td></tr>
@@ -117,15 +118,15 @@
       <div class="tabla">
         <table>
           <thead>
-            <tr><th scope="col">Plataforma</th><th scope="col">Despliegues medidos</th><th scope="col">Tiempo de entrega (promedio)</th><th scope="col">Mínimo y máximo</th></tr>
+            <tr><th scope="col">Plataforma</th><th scope="col">Pipelines en main</th><th scope="col">Duración del pipeline</th><th scope="col">Tiempo de entrega</th></tr>
           </thead>
           <tbody>
-            <tr><td>GitHub Pages</td><td>3</td><td>47 s</td><td>44 s y 49 s</td></tr>
-            <tr><td>GitLab Pages</td><td>0</td><td>Pendiente</td><td>Pendiente</td></tr>
+            <tr><td>GitHub Pages</td><td>6</td><td>35,5 s (de 32 a 41 s)</td><td>46 s (4 mediciones, de 43 a 49 s)</td></tr>
+            <tr><td>GitLab Pages</td><td>2</td><td>47,5 s (47 y 48 s)</td><td>En medición</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="nota">Con tres mediciones todavía no se puede concluir nada; por eso la meta es llegar a 20 despliegues por plataforma entre los cuatro.</p>
+      <p class="nota">Primer dato: en GitHub el sitio tarda unos 10 segundos más en verse que lo que dura el pipeline; ese es el tiempo de publicación después del despliegue. Con tan pocos datos todavía no se puede concluir cuál es más rápido; la meta es llegar a 20 despliegues por plataforma entre los cuatro.</p>
     </section>
 
     <section class="bloque" id="tecnologias">

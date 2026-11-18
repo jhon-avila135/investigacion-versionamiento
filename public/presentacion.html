@@ -212,14 +212,14 @@ git tag -a v1.0.0 -m "entrega"      # versión que se entrega</code></pre>
       <h2>Resultados medidos</h2>
       <div class="tabla">
         <table>
-          <thead><tr><th scope="col">Plataforma</th><th scope="col">Despliegues</th><th scope="col">Promedio</th><th scope="col">Mínimo y máximo</th></tr></thead>
+          <thead><tr><th scope="col">Plataforma</th><th scope="col">Pipelines</th><th scope="col">Duración del pipeline</th><th scope="col">Tiempo de entrega</th></tr></thead>
           <tbody>
-            <tr><td>GitHub Pages</td><td>3</td><td>47 s</td><td>44 s y 49 s</td></tr>
-            <tr><td>GitLab Pages</td><td>0</td><td>Pendiente</td><td>Pendiente</td></tr>
+            <tr><td>GitHub Pages</td><td>6</td><td>35,5 s</td><td>46 s</td></tr>
+            <tr><td>GitLab Pages</td><td>2</td><td>47,5 s</td><td>En medición</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="nota">Meta: 20 despliegues por plataforma entre los cuatro integrantes. Tiempo de entrega: métrica DORA (Forsgren, Humble y Kim, 2018).</p>
+      <p class="nota">El tiempo de entrega incluye la publicación después del pipeline. Meta: 20 despliegues por plataforma entre los cuatro. Métrica DORA (Forsgren, Humble y Kim, 2018).</p>
     </section>
 
     <section class="slide" id="hallazgos">
