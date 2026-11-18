@@ -120,12 +120,12 @@
             <tr><th scope="col">Plataforma</th><th scope="col">Despliegues medidos</th><th scope="col">Tiempo de entrega (promedio)</th><th scope="col">Mínimo y máximo</th></tr>
           </thead>
           <tbody>
-            <tr><td>GitHub Pages</td><td>2</td><td>46,5 s</td><td>44 s y 49 s</td></tr>
+            <tr><td>GitHub Pages</td><td>3</td><td>47 s</td><td>44 s y 49 s</td></tr>
             <tr><td>GitLab Pages</td><td>0</td><td>Pendiente</td><td>Pendiente</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="nota">Con dos mediciones todavía no se puede concluir nada; por eso la meta es llegar a 20 despliegues por plataforma entre los cuatro.</p>
+      <p class="nota">Con tres mediciones todavía no se puede concluir nada; por eso la meta es llegar a 20 despliegues por plataforma entre los cuatro.</p>
     </section>
 
     <section class="bloque" id="tecnologias">
@@ -144,16 +144,45 @@
     <section class="bloque" id="enlaces">
       <p class="eyebrow">Todo en un lugar</p>
       <h2>Enlaces del proyecto</h2>
+
+      <h3 class="grupo-enlaces">Para presentar</h3>
+      <ul class="lista-enlaces">
+        <li><a href="presentacion.html">Presentación</a><small>Diapositivas dentro del sitio; se pasan con las flechas</small></li>
+        <li><a href="investigacion.html">Investigación</a><small>GitHub frente a GitLab, tema por tema</small></li>
+        <li><a href="#como-lo-hicimos">Cómo lo hicimos</a><small>Bitácora del ejemplo práctico</small></li>
+      </ul>
+
+      <h3 class="grupo-enlaces">Despliegues</h3>
       <ul class="lista-enlaces">
         <li><a href="https://jhon-avila135.github.io/investigacion-versionamiento/">Sitio en GitHub Pages</a><small>Desplegado con GitHub Actions</small></li>
         <li><a href="https://grupo2-versionamiento-uce.gitlab.io/investigacion-versionamiento/">Sitio en GitLab Pages</a><small>Desplegado con GitLab CI</small></li>
-        <li><a href="https://github.com/jhon-avila135/investigacion-versionamiento">Repositorio en GitHub</a><small>Ramas, pull requests y reglas</small></li>
-        <li><a href="https://gitlab.com/grupo2-versionamiento-uce/investigacion-versionamiento">Repositorio en GitLab</a><small>Copia de main para el segundo despliegue</small></li>
         <li><a href="https://github.com/jhon-avila135/investigacion-versionamiento/actions">Pipelines de GitHub Actions</a><small>Historial de validaciones y despliegues</small></li>
         <li><a href="https://gitlab.com/grupo2-versionamiento-uce/investigacion-versionamiento/-/pipelines">Pipelines de GitLab CI</a><small>Historial de validaciones y despliegues</small></li>
-        <li><a href="https://github.com/jhon-avila135/investigacion-versionamiento/pulls?q=is%3Apr">Pull requests</a><small>Incluye el PR bloqueado por la validación</small></li>
-        <li><a href="https://jhonavilat105.atlassian.net/wiki/spaces/G2V">Espacio en Confluence</a><small>Ruta, tareas, SRS y decisiones del grupo</small></li>
-        <li><a href="https://github.com/jhon-avila135/investigacion-versionamiento/blob/main/docs/SRS.md">SRS en el repositorio</a><small>ISO/IEC/IEEE 29148</small></li>
+      </ul>
+
+      <h3 class="grupo-enlaces">Código y reglas</h3>
+      <ul class="lista-enlaces">
+        <li><a href="https://github.com/jhon-avila135/investigacion-versionamiento">Repositorio en GitHub</a><small>Fuente de verdad: ramas y pull requests</small></li>
+        <li><a href="https://gitlab.com/grupo2-versionamiento-uce/investigacion-versionamiento">Repositorio en GitLab</a><small>Copia de main para el segundo despliegue</small></li>
+        <li><a href="https://github.com/jhon-avila135/investigacion-versionamiento/blob/main/.github/workflows/deploy.yml">Pipeline de GitHub (deploy.yml)</a><small>Validar y publicar en GitHub Pages</small></li>
+        <li><a href="https://gitlab.com/grupo2-versionamiento-uce/investigacion-versionamiento/-/blob/main/.gitlab-ci.yml">Pipeline de GitLab (.gitlab-ci.yml)</a><small>Validar y publicar en GitLab Pages</small></li>
+        <li><a href="https://github.com/jhon-avila135/investigacion-versionamiento/rules">Reglas de la rama main</a><small>Ruleset proteger-main</small></li>
+      </ul>
+
+      <h3 class="grupo-enlaces">Evidencia</h3>
+      <ul class="lista-enlaces">
+        <li><a href="https://github.com/jhon-avila135/investigacion-versionamiento/pulls?q=is%3Apr">Todos los pull requests</a><small>Del PR #1 al último, con su validación</small></li>
+        <li><a href="https://github.com/jhon-avila135/investigacion-versionamiento/pull/3">PR #3 · error provocado</a><small>validate en rojo y merge bloqueado</small></li>
+        <li><a href="https://github.com/jhon-avila135/investigacion-versionamiento/pull/2">PR #2 · validador corregido</a><small>El hallazgo de accesibilidad</small></li>
+        <li><a href="https://github.com/jhon-avila135/investigacion-versionamiento/blob/main/mediciones.csv">Hoja de mediciones</a><small>Cada despliegue medido, en CSV</small></li>
+        <li><a href="https://github.com/jhon-avila135/investigacion-versionamiento/blob/main/scripts/medir.sh">Script de medición</a><small>Cómo se toma cada tiempo</small></li>
+      </ul>
+
+      <h3 class="grupo-enlaces">Documentación</h3>
+      <ul class="lista-enlaces">
+        <li><a href="https://github.com/jhon-avila135/investigacion-versionamiento/blob/main/docs/SRS.md">SRS</a><small>ISO/IEC/IEEE 29148</small></li>
+        <li><a href="https://github.com/jhon-avila135/investigacion-versionamiento#readme">README</a><small>Cómo trabajar en el proyecto</small></li>
+        <li><a href="https://jhonavilat105.atlassian.net/wiki/spaces/G2V">Espacio en Confluence</a><small>Ruta, tareas, SRS y decisiones; acceso por invitación</small></li>
       </ul>
       <div class="qr">
         <img src="qr-sitio.png" alt="Código QR que abre este sitio en GitHub Pages" width="180" height="180">
