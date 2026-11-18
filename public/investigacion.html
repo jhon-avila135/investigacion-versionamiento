@@ -134,7 +134,7 @@
             <tr><td><code>git remote add gitlab URL</code></td><td>Tener dos remotos: origin (GitHub) y gitlab.</td></tr>
             <tr><td><code>git push gitlab main</code></td><td>Llevar main a GitLab después de fusionar en GitHub; eso dispara su pipeline.</td></tr>
             <tr><td><code>git config credential.https://github.com.username USUARIO</code></td><td>Obligar a que este repositorio use la cuenta institucional y no otra guardada en la PC.</td></tr>
-            <tr><td><code>git switch -c fix/prueba-validacion</code></td><td>Una rama por tarea; main no se toca directo.</td></tr>
+            <tr><td><code>git switch -c fix/prueba-validacion</code></td><td>Una rama por tarea; main no se toca directamente.</td></tr>
             <tr><td><code>git rebase main</code></td><td>Poner una rama al día con main antes de abrir el PR.</td></tr>
             <tr><td><code>git push --force-with-lease</code></td><td>Reescribir solo tu rama después del rebase, sin pisar trabajo ajeno. En main está bloqueado.</td></tr>
             <tr><td><code>git revert HEAD</code></td><td>Deshacer un cambio publicado sin reescribir la historia.</td></tr>

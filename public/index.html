@@ -74,7 +74,7 @@
       <h2>Cómo lo hicimos</h2>
       <ol class="pasos">
         <li><strong>Cuentas con el correo de la UCE.</strong> GitHub, GitLab y Atlassian con el correo institucional. En la PC fijamos el usuario de cada plataforma en el repositorio, porque el administrador de credenciales tenía guardada otra cuenta.</li>
-        <li><strong>Repositorios.</strong> En GitHub, un repositorio público. En GitLab, un grupo (grupo2-versionamiento-uce) con el proyecto adentro; tuvimos que hacer público el grupo, porque un proyecto público no puede estar en un grupo privado.</li>
+        <li><strong>Repositorios.</strong> En GitHub, un repositorio público. En GitLab, un grupo (grupo2-versionamiento-uce) con el proyecto dentro; tuvimos que hacer público el grupo, porque un proyecto público no puede estar en un grupo privado.</li>
         <li><strong>Pipelines.</strong> El <a href="https://github.com/jhon-avila135/investigacion-versionamiento/blob/main/.github/workflows/deploy.yml">workflow de GitHub</a> y el <a href="https://gitlab.com/grupo2-versionamiento-uce/investigacion-versionamiento/-/blob/main/.gitlab-ci.yml">.gitlab-ci.yml</a>: validar y luego publicar. El primer despliegue en GitHub tardó 41 segundos.</li>
         <li><strong>Variables.</strong> ENTORNO creada en cada plataforma (en GitLab como protegida). El commit lo ponen las variables predefinidas.</li>
         <li><strong>Reglas.</strong> Ruleset proteger-main: PR obligatorio, check validate obligatorio, sin force push ni borrado, sin excepciones.</li>
@@ -117,15 +117,15 @@
       <div class="tabla">
         <table>
           <thead>
-            <tr><th scope="col">Plataforma</th><th scope="col">Despliegues medidos</th><th scope="col">Tiempo de entrega</th><th scope="col">Duración del pipeline</th></tr>
+            <tr><th scope="col">Plataforma</th><th scope="col">Despliegues medidos</th><th scope="col">Tiempo de entrega (promedio)</th><th scope="col">Mínimo y máximo</th></tr>
           </thead>
           <tbody>
-            <tr><td>GitHub Pages</td><td>1</td><td>49 s</td><td>41 s</td></tr>
+            <tr><td>GitHub Pages</td><td>2</td><td>46,5 s</td><td>44 s y 49 s</td></tr>
             <tr><td>GitLab Pages</td><td>0</td><td>Pendiente</td><td>Pendiente</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="nota">Con una sola medición no se puede concluir nada; por eso la meta es llegar a 20 despliegues por plataforma entre los cuatro.</p>
+      <p class="nota">Con dos mediciones todavía no se puede concluir nada; por eso la meta es llegar a 20 despliegues por plataforma entre los cuatro.</p>
     </section>
 
     <section class="bloque" id="tecnologias">
