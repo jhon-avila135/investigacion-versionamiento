@@ -121,12 +121,12 @@
             <tr><th scope="col">Plataforma</th><th scope="col">Pipelines en main</th><th scope="col">Duración del pipeline</th><th scope="col">Tiempo de entrega</th></tr>
           </thead>
           <tbody>
-            <tr><td>GitHub Pages</td><td>6</td><td>35,5 s (de 32 a 41 s)</td><td>46 s (4 mediciones, de 43 a 49 s)</td></tr>
-            <tr><td>GitLab Pages</td><td>2</td><td>47,5 s (47 y 48 s)</td><td>En medición</td></tr>
+            <tr><td>GitHub Pages</td><td>6</td><td>35,5 s (de 32 a 41 s)</td><td>49,4 s (7 mediciones, de 43 a 65 s; desviación 7,9 s)</td></tr>
+            <tr><td>GitLab Pages</td><td>2</td><td>47,5 s (47 y 48 s)</td><td>60 s (1 medición válida)</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="nota">Primer dato: en GitHub el sitio tarda unos 10 segundos más en verse que lo que dura el pipeline; ese es el tiempo de publicación después del despliegue. Con tan pocos datos todavía no se puede concluir cuál es más rápido; la meta es llegar a 20 despliegues por plataforma entre los cuatro.</p>
+      <p class="nota">Primer dato: en las dos plataformas el sitio tarda más en verse que lo que dura el pipeline; esa diferencia es la publicación después del despliegue. Con una sola medición válida de GitLab todavía no se puede concluir cuál es más rápido; la meta es llegar a 20 despliegues por plataforma entre los cuatro.</p>
     </section>
 
     <section class="bloque" id="tecnologias">
