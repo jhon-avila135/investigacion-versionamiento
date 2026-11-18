@@ -52,7 +52,7 @@ El repositorio en GitHub es la fuente de verdad. La rama `main` se envía tambi�
 
 | ID | Requisito | Prioridad |
 |---|---|---|
-| RF-01 | El sitio muestra la investigación en secciones: problema, fundamentos, diferencias, despliegue, reglas, variables, comandos, ejemplo práctico, límites y fuentes. | Alta |
+| RF-01 | El sitio muestra la investigación en secciones: diferencias, despliegue, reglas, variables, comandos, cuenta educativa frente a cuenta normal, ejemplo práctico, hallazgos y fuentes. | Alta |
 | RF-02 | El sitio incluye la presentación del grupo, navegable con el teclado. | Alta |
 | RF-03 | El sitio muestra la ruta de trabajo con el estado de cada etapa. | Alta |
 | RF-04 | El sitio reúne los enlaces a los repositorios, pipelines, sitios publicados y el espacio de Confluence. | Media |
