@@ -103,3 +103,6 @@ footer p { margin: 4px 0; }
 }
 .qr { display: flex; align-items: center; gap: 20px; margin-top: 24px; }
 .qr img { background: var(--blanco); padding: 8px; border-radius: 8px; }
+.pasos { padding-left: 22px; max-width: 80ch; }
+.pasos li { margin-bottom: 12px; color: var(--gris); }
+.pasos li strong { color: var(--tinta); }

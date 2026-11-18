@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Gestión de versionamiento · Grupo 2</title>
-  <meta name="description" content="Proyecto del Grupo 2: investigación, presentación y despliegue continuo en GitHub y GitLab.">
+  <meta name="description" content="Proyecto del Grupo 2: GitHub frente a GitLab con un sitio real desplegado, protegido y medido en ambas plataformas.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@400;600&amp;family=Space+Grotesk:wght@500;700&amp;display=swap">
   <link rel="stylesheet" href="styles.css">
@@ -13,7 +13,7 @@
   <nav class="barra" aria-label="Navegación principal">
     <a class="marca" href="index.html">Grupo 2 <span>·</span> Versionamiento</a>
     <a href="index.html" aria-current="page">Inicio</a>
-    <a href="#ruta">Ruta</a>
+    <a href="#como-lo-hicimos">Cómo lo hicimos</a>
     <a href="investigacion.html">Investigación</a>
     <a href="presentacion.html">Presentación</a>
     <a href="#enlaces">Enlaces</a>
@@ -26,7 +26,7 @@
     <div class="acciones">
       <a class="boton principal" href="presentacion.html">Ver la presentación</a>
       <a class="boton" href="investigacion.html">Leer la investigación</a>
-      <a class="boton" href="#ruta">Ver la ruta de trabajo</a>
+      <a class="boton" href="#como-lo-hicimos">Ver cómo lo hicimos</a>
     </div>
   </header>
 
@@ -34,106 +34,110 @@
     <section class="bloque" id="idea">
       <p class="eyebrow">La idea</p>
       <h2>No solo explicamos GitHub y GitLab: los usamos para lo mismo y los medimos</h2>
-      <p>El mismo sitio que estás viendo está desplegado en dos plataformas, cada una con su propio pipeline. Cada vez que el grupo aprueba un cambio, un robot valida el HTML y, si todo está bien, lo publica. El pie de página muestra en qué plataforma estás, qué versión (commit) se desplegó y cuándo.</p>
-    </section>
-
-    <section class="bloque" id="piezas">
-      <p class="eyebrow">Conceptos básicos</p>
-      <h2>Las piezas del trabajo</h2>
-      <div class="grid">
-        <article class="tarjeta">
-          <span class="etiqueta">Git</span>
-          <h3>El cuaderno de versiones</h3>
-          <p>Guarda cada versión del trabajo y quién la hizo. Funciona en la computadora, incluso sin internet.</p>
-        </article>
-        <article class="tarjeta">
-          <span class="etiqueta">Commit</span>
-          <h3>Una foto del proyecto</h3>
-          <p>El estado del proyecto en un momento dado, con una nota de qué cambió.</p>
-        </article>
-        <article class="tarjeta">
-          <span class="etiqueta">GitHub / GitLab</span>
-          <h3>Dos bibliotecas</h3>
-          <p>Plataformas en la nube donde guardamos la copia del trabajo y colaboramos.</p>
-        </article>
-        <article class="tarjeta">
-          <span class="etiqueta">Pipeline (CI/CD)</span>
-          <h3>Un robot que revisa</h3>
-          <p>Revisa el trabajo y, si está bien, lo pone en la vitrina: GitHub Actions y GitLab CI.</p>
-        </article>
-        <article class="tarjeta">
-          <span class="etiqueta">Pages</span>
-          <h3>La vitrina</h3>
-          <p>El hosting donde cualquiera ve el trabajo con un link: GitHub Pages y GitLab Pages.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="bloque" id="flujo">
-      <p class="eyebrow">Flujo</p>
-      <h2>Cómo viaja un cambio hasta el público</h2>
+      <p>El sitio que estás viendo está desplegado en dos plataformas, cada una con su propio pipeline. Ningún cambio llega a producción sin pasar por un pull request y por la validación automática. El pie de página te dice en qué plataforma estás, qué commit se desplegó y cuándo.</p>
       <div class="flujo">
-        <div class="paso"><strong>Computadora</strong><span>Página web e historial Git</span></div>
+        <div class="paso"><strong>Rama + PR</strong><span>en GitHub</span></div>
         <div class="flecha" aria-hidden="true">→</div>
-        <div class="paso"><strong>git push</strong><span>Rama y pull request</span></div>
+        <div class="paso destacado"><strong>validate</strong><span>check obligatorio</span></div>
         <div class="flecha" aria-hidden="true">→</div>
-        <div class="paso destacado"><strong>GitHub y GitLab</strong><span>Guardan la copia</span></div>
+        <div class="paso"><strong>Merge a main</strong><span>solo en verde</span></div>
         <div class="flecha" aria-hidden="true">→</div>
-        <div class="paso destacado"><strong>Pipeline</strong><span>Valida el HTML y publica</span></div>
-        <div class="flecha" aria-hidden="true">→</div>
-        <div class="paso"><strong>Vista</strong><span>github.io y gitlab.io</span></div>
-      </div>
-      <p class="nota">Si la validación falla, el cambio no se puede fusionar y no llega a producción.</p>
-    </section>
-
-    <section class="bloque" id="entregables">
-      <p class="eyebrow">Qué entregamos</p>
-      <h2>Cuatro entregables</h2>
-      <div class="grid">
-        <article class="tarjeta"><span class="etiqueta">1</span><h3>Investigación</h3><p>El contenido teórico, publicado en este sitio y en PDF.</p></article>
-        <article class="tarjeta"><span class="etiqueta">2</span><h3>SRS</h3><p>Qué vamos a construir y cómo sabremos que funciona (ISO/IEC/IEEE 29148).</p></article>
-        <article class="tarjeta"><span class="etiqueta">3</span><h3>Ejemplo práctico</h3><p>El repositorio, los dos sitios publicados y la hoja de mediciones.</p></article>
-        <article class="tarjeta"><span class="etiqueta">4</span><h3>Presentación</h3><p>Las diapositivas, integradas aquí y actualizadas con nuestros resultados.</p></article>
+        <div class="paso destacado"><strong>GitHub Pages</strong><span>GitHub Actions</span></div>
+        <div class="flecha" aria-hidden="true">+</div>
+        <div class="paso destacado"><strong>GitLab Pages</strong><span>git push gitlab main</span></div>
       </div>
     </section>
 
-    <section class="bloque" id="ruta">
-      <p class="eyebrow">Ruta de trabajo</p>
-      <h2>Etapas del trabajo</h2>
-      <p>Todos los integrantes hacemos todas las etapas para aprender todo; al final comparamos resultados y unimos lo mejor de cada uno. Las tareas y la documentación del grupo viven en Confluence.</p>
+    <section class="bloque" id="enfoque">
+      <p class="eyebrow">Lo que pidió el ingeniero</p>
+      <h2>Dónde está cada tema</h2>
       <div class="tabla">
         <table>
           <thead>
-            <tr><th scope="col">#</th><th scope="col">Etapa</th><th scope="col">Qué se hace</th><th scope="col">Qué se aprende</th><th scope="col">Estado</th></tr>
+            <tr><th scope="col">Tema</th><th scope="col">Cómo lo mostramos</th></tr>
           </thead>
           <tbody>
-            <tr><td>0</td><td>Preparar</td><td>Instalar las herramientas y crear las cuentas</td><td>Terminal, PATH, Git ≠ GitHub</td><td><span class="estado hecho">Hecho</span></td></tr>
-            <tr><td>1</td><td>Planear</td><td>Escribir el SRS: requisitos funcionales y no funcionales</td><td>Requisitos medibles y trazabilidad</td><td><span class="estado hecho">Hecho</span></td></tr>
-            <tr><td>2</td><td>Construir</td><td>Hacer la página con la investigación y la presentación</td><td>HTML semántico, sitio estático</td><td><span class="estado hecho">Hecho</span></td></tr>
-            <tr><td>3</td><td>Versionar</td><td>Primer commit y subir a GitHub y GitLab</td><td>Commit, remoto, push</td><td><span class="estado curso">En curso</span></td></tr>
-            <tr><td>4</td><td>Automatizar en GitHub</td><td>Crear el pipeline de GitHub Actions</td><td>CI vs CD, jobs, variables, OIDC</td><td><span class="estado curso">En curso</span></td></tr>
-            <tr><td>5</td><td>Automatizar en GitLab</td><td>Crear el pipeline de GitLab CI</td><td>Stages, runners, artefactos</td><td><span class="estado curso">En curso</span></td></tr>
-            <tr><td>6</td><td>Proteger</td><td>Reglas en main y trabajo con ramas y PR</td><td>Rulesets, status checks, revisión</td><td><span class="estado pendiente">Pendiente</span></td></tr>
-            <tr><td>7</td><td>Medir</td><td>5 despliegues por plataforma, con tiempos</td><td>Métricas DORA, promedio y desviación</td><td><span class="estado pendiente">Pendiente</span></td></tr>
-            <tr><td>8</td><td>Cerrar</td><td>PDF, QR y primera versión v1.0.0</td><td>Tags, releases y SemVer</td><td><span class="estado pendiente">Pendiente</span></td></tr>
-            <tr><td>9</td><td>Presentar</td><td>Actualizar la presentación con los resultados</td><td>Comunicar con evidencia</td><td><span class="estado pendiente">Pendiente</span></td></tr>
+            <tr><td>Diferencias</td><td><a href="investigacion.html#diferencias">El modelo de cada plataforma</a> y la misma tarea hecha en las dos</td></tr>
+            <tr><td>Cómo desplegar</td><td><a href="investigacion.html#despliegue">Dos pipelines reales</a>: GitHub Actions y GitLab CI</td></tr>
+            <tr><td>Reglas</td><td><a href="investigacion.html#reglas">Ruleset en main</a> y un PR que se bloqueó solo</td></tr>
+            <tr><td>Variables y gestión</td><td><a href="investigacion.html#variables">Variables propias, predefinidas y protegidas</a>; rollback con revert</td></tr>
+            <tr><td>Comandos</td><td><a href="investigacion.html#comandos">Los que usamos</a> para trabajar con dos remotos y main protegida</td></tr>
+            <tr><td>Correo institucional</td><td><a href="investigacion.html#educacion">Qué cambia</a> en GitHub y en GitLab con la cuenta educativa</td></tr>
+            <tr><td>Ejemplo práctico</td><td>Este sitio: <a href="#como-lo-hicimos">cómo lo hicimos</a> y <a href="#resultados">resultados medidos</a></td></tr>
           </tbody>
         </table>
       </div>
     </section>
 
+    <section class="bloque" id="como-lo-hicimos">
+      <p class="eyebrow">Bitácora</p>
+      <h2>Cómo lo hicimos</h2>
+      <ol class="pasos">
+        <li><strong>Cuentas con el correo de la UCE.</strong> GitHub, GitLab y Atlassian con el correo institucional. En la PC fijamos el usuario de cada plataforma en el repositorio, porque el administrador de credenciales tenía guardada otra cuenta.</li>
+        <li><strong>Repositorios.</strong> En GitHub, un repositorio público. En GitLab, un grupo (grupo2-versionamiento-uce) con el proyecto adentro; tuvimos que hacer público el grupo, porque un proyecto público no puede estar en un grupo privado.</li>
+        <li><strong>Pipelines.</strong> El <a href="https://github.com/jhon-avila135/investigacion-versionamiento/blob/main/.github/workflows/deploy.yml">workflow de GitHub</a> y el <a href="https://gitlab.com/grupo2-versionamiento-uce/investigacion-versionamiento/-/blob/main/.gitlab-ci.yml">.gitlab-ci.yml</a>: validar y luego publicar. El primer despliegue en GitHub tardó 41 segundos.</li>
+        <li><strong>Variables.</strong> ENTORNO creada en cada plataforma (en GitLab como protegida). El commit lo ponen las variables predefinidas.</li>
+        <li><strong>Reglas.</strong> Ruleset proteger-main: PR obligatorio, check validate obligatorio, sin force push ni borrado, sin excepciones.</li>
+        <li><strong><a href="https://github.com/jhon-avila135/investigacion-versionamiento/pull/1">PR #1</a> · flujo normal.</strong> Enlace a Confluence y QR del sitio. validate en verde, merge y publicación en 49 segundos.</li>
+        <li><strong><a href="https://github.com/jhon-avila135/investigacion-versionamiento/pull/2">PR #2</a> · corregimos el validador.</strong> Al preparar la prueba de error vimos que el preset standard no revisaba accesibilidad; agregamos el preset a11y.</li>
+        <li><strong><a href="https://github.com/jhon-avila135/investigacion-versionamiento/pull/3">PR #3</a> · error provocado.</strong> Quitamos el texto alternativo del QR: validate falló y GitHub bloqueó el merge. Lo dejamos abierto como evidencia.</li>
+        <li><strong>Mediciones.</strong> Con scripts/medir.sh: el script mira la versión publicada cada 5 segundos y guarda cuánto tardó en cambiar.</li>
+      </ol>
+    </section>
+
+    <section class="bloque" id="ruta">
+      <p class="eyebrow">Ruta de trabajo</p>
+      <h2>Etapas</h2>
+      <p>Todos los integrantes hacemos todas las etapas para aprender todo; al final comparamos resultados y unimos lo mejor de cada uno. Las tareas y la documentación del grupo viven en <a href="https://jhonavilat105.atlassian.net/wiki/spaces/G2V">Confluence</a>.</p>
+      <div class="tabla">
+        <table>
+          <thead>
+            <tr><th scope="col">#</th><th scope="col">Etapa</th><th scope="col">Qué se hace</th><th scope="col">Estado</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>0</td><td>Preparar</td><td>Herramientas (Git, Node LTS, Python, IntelliJ IDEA) y cuentas institucionales</td><td><span class="estado hecho">Hecho</span></td></tr>
+            <tr><td>1</td><td>Planear</td><td>SRS con requisitos medibles y matriz de trazabilidad</td><td><span class="estado hecho">Hecho</span></td></tr>
+            <tr><td>2</td><td>Construir</td><td>Sitio con inicio, investigación y presentación</td><td><span class="estado hecho">Hecho</span></td></tr>
+            <tr><td>3</td><td>Versionar</td><td>Repositorio con dos remotos</td><td><span class="estado hecho">Hecho</span></td></tr>
+            <tr><td>4</td><td>Desplegar en GitHub</td><td>GitHub Actions hacia GitHub Pages</td><td><span class="estado hecho">Hecho</span></td></tr>
+            <tr><td>5</td><td>Desplegar en GitLab</td><td>GitLab CI hacia GitLab Pages</td><td><span class="estado curso">En curso</span></td></tr>
+            <tr><td>6</td><td>Proteger</td><td>Reglas en main, PR normal y error provocado</td><td><span class="estado hecho">Hecho</span></td></tr>
+            <tr><td>7</td><td>Medir</td><td>5 despliegues por plataforma por integrante</td><td><span class="estado curso">En curso</span></td></tr>
+            <tr><td>8</td><td>Cerrar</td><td>PDF, QR y versión v1.0.0</td><td><span class="estado pendiente">Pendiente</span></td></tr>
+            <tr><td>9</td><td>Presentar</td><td>Presentación con los resultados del grupo</td><td><span class="estado pendiente">Pendiente</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="bloque" id="resultados">
+      <p class="eyebrow">Evidencia</p>
+      <h2>Resultados medidos</h2>
+      <p>Medimos el tiempo de entrega: los segundos desde que se aprueba un cambio hasta que se ve en el sitio publicado. Es una de las cuatro métricas DORA (Forsgren, Humble y Kim, 2018). Cada integrante suma 5 despliegues por plataforma; la tabla se completa con los datos de todo el grupo.</p>
+      <div class="tabla">
+        <table>
+          <thead>
+            <tr><th scope="col">Plataforma</th><th scope="col">Despliegues medidos</th><th scope="col">Tiempo de entrega</th><th scope="col">Duración del pipeline</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>GitHub Pages</td><td>1</td><td>49 s</td><td>41 s</td></tr>
+            <tr><td>GitLab Pages</td><td>0</td><td>Pendiente</td><td>Pendiente</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="nota">Con una sola medición no se puede concluir nada; por eso la meta es llegar a 20 despliegues por plataforma entre los cuatro.</p>
+    </section>
+
     <section class="bloque" id="tecnologias">
       <p class="eyebrow">Qué usamos</p>
-      <h2>Tecnologías y herramientas</h2>
+      <h2>Tecnologías</h2>
       <div class="grid">
-        <article class="tarjeta"><span class="etiqueta">Versionamiento</span><h3>Git</h3><p>Historial, ramas, tags y dos remotos: origin (GitHub) y gitlab.</p></article>
-        <article class="tarjeta github"><span class="etiqueta">Plataforma</span><h3>GitHub</h3><p>Repositorio principal, pull requests, rulesets, Actions y Pages.</p></article>
-        <article class="tarjeta gitlab"><span class="etiqueta">Plataforma</span><h3>GitLab</h3><p>Segundo destino: CI/CD con .gitlab-ci.yml, ramas protegidas y Pages.</p></article>
-        <article class="tarjeta"><span class="etiqueta">Calidad</span><h3>html-validate</h3><p>Valida el HTML en cada pipeline. Si falla, nada se publica.</p></article>
-        <article class="tarjeta"><span class="etiqueta">Entorno</span><h3>IntelliJ IDEA</h3><p>IDE del proyecto, con Git, GitHub y GitLab integrados.</p></article>
-        <article class="tarjeta"><span class="etiqueta">Gestión</span><h3>Confluence</h3><p>Espacio del grupo con la ruta, las tareas, el SRS y las decisiones técnicas.</p></article>
-        <article class="tarjeta"><span class="etiqueta">Medición</span><h3>Bash y curl</h3><p>Un script mide el tiempo desde la aprobación hasta que el cambio es visible.</p></article>
-        <article class="tarjeta"><span class="etiqueta">Web</span><h3>HTML, CSS y JavaScript</h3><p>Sitio estático, sin servidor. La presentación funciona con el teclado.</p></article>
+        <article class="tarjeta github"><span class="etiqueta">Plataforma</span><h3>GitHub</h3><p>Fuente de verdad: pull requests, rulesets, Actions y Pages.</p></article>
+        <article class="tarjeta gitlab"><span class="etiqueta">Plataforma</span><h3>GitLab</h3><p>Segundo destino: grupo, ramas protegidas, GitLab CI y Pages.</p></article>
+        <article class="tarjeta"><span class="etiqueta">Calidad</span><h3>html-validate</h3><p>Presets standard y a11y. Si falla, no se publica.</p></article>
+        <article class="tarjeta"><span class="etiqueta">Entorno</span><h3>IntelliJ IDEA</h3><p>IDE del proyecto, con Git integrado.</p></article>
+        <article class="tarjeta"><span class="etiqueta">Gestión</span><h3>Confluence</h3><p>Ruta, tareas, SRS y decisiones del grupo.</p></article>
+        <article class="tarjeta"><span class="etiqueta">Medición</span><h3>Bash y curl</h3><p>Script que mide el tiempo hasta que el cambio es visible.</p></article>
       </div>
     </section>
 
@@ -143,11 +147,13 @@
       <ul class="lista-enlaces">
         <li><a href="https://jhon-avila135.github.io/investigacion-versionamiento/">Sitio en GitHub Pages</a><small>Desplegado con GitHub Actions</small></li>
         <li><a href="https://grupo2-versionamiento-uce.gitlab.io/investigacion-versionamiento/">Sitio en GitLab Pages</a><small>Desplegado con GitLab CI</small></li>
-        <li><a href="https://github.com/jhon-avila135/investigacion-versionamiento">Repositorio en GitHub</a><small>Fuente de verdad: ramas, pull requests y reglas</small></li>
+        <li><a href="https://github.com/jhon-avila135/investigacion-versionamiento">Repositorio en GitHub</a><small>Ramas, pull requests y reglas</small></li>
         <li><a href="https://gitlab.com/grupo2-versionamiento-uce/investigacion-versionamiento">Repositorio en GitLab</a><small>Copia de main para el segundo despliegue</small></li>
         <li><a href="https://github.com/jhon-avila135/investigacion-versionamiento/actions">Pipelines de GitHub Actions</a><small>Historial de validaciones y despliegues</small></li>
         <li><a href="https://gitlab.com/grupo2-versionamiento-uce/investigacion-versionamiento/-/pipelines">Pipelines de GitLab CI</a><small>Historial de validaciones y despliegues</small></li>
+        <li><a href="https://github.com/jhon-avila135/investigacion-versionamiento/pulls?q=is%3Apr">Pull requests</a><small>Incluye el PR bloqueado por la validación</small></li>
         <li><a href="https://jhonavilat105.atlassian.net/wiki/spaces/G2V">Espacio en Confluence</a><small>Ruta, tareas, SRS y decisiones del grupo</small></li>
+        <li><a href="https://github.com/jhon-avila135/investigacion-versionamiento/blob/main/docs/SRS.md">SRS en el repositorio</a><small>ISO/IEC/IEEE 29148</small></li>
       </ul>
       <div class="qr">
         <img src="qr-sitio.png" alt="Código QR que abre este sitio en GitHub Pages" width="180" height="180">
@@ -155,27 +161,10 @@
       </div>
     </section>
 
-    <section class="bloque" id="resultados">
-      <p class="eyebrow">Evidencia</p>
-      <h2>Resultados medidos</h2>
-      <p>Medimos el tiempo de entrega: los segundos desde que se aprueba un cambio hasta que es visible en el sitio. También medimos el tiempo de recuperación con un revert. Son dos de las cuatro métricas DORA (Forsgren, Humble y Kim, 2018).</p>
-      <div class="tabla">
-        <table>
-          <thead>
-            <tr><th scope="col">Plataforma</th><th scope="col">Despliegues</th><th scope="col">Promedio (s)</th><th scope="col">Desviación (s)</th><th scope="col">Recuperación (s)</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>GitHub Pages</td><td>En medición</td><td>-</td><td>-</td><td>-</td></tr>
-            <tr><td>GitLab Pages</td><td>En medición</td><td>-</td><td>-</td><td>-</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
     <section class="bloque" id="descargas">
       <p class="eyebrow">Descargas</p>
       <h2>Investigación en PDF</h2>
-      <p>El PDF y su código QR se publican en la etapa de cierre.</p>
+      <p>El PDF y su código QR se publican en la etapa de cierre, junto con la versión v1.0.0.</p>
     </section>
   </main>
 
