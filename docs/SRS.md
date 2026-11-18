@@ -37,7 +37,7 @@ El repositorio en GitHub es la fuente de verdad. La rama `main` se envía tambi�
 | Usuario | Necesidad |
 |---|---|
 | Docente y compañeros | Leer la investigación, ver la presentación y descargar el PDF. |
-| Integrantes del grupo | Proponer cambios mediante ramas y pull requests, y seguir las tareas en Jira. |
+| Integrantes del grupo | Proponer cambios mediante ramas y pull requests, y seguir las tareas en Confluence. |
 
 ### 2.3 Restricciones
 - Costo cero: solo planes gratuitos de GitHub, GitLab y Atlassian.
@@ -55,7 +55,7 @@ El repositorio en GitHub es la fuente de verdad. La rama `main` se envía tambi�
 | RF-01 | El sitio muestra la investigación en secciones: problema, fundamentos, diferencias, despliegue, reglas, variables, comandos, ejemplo práctico, límites y fuentes. | Alta |
 | RF-02 | El sitio incluye la presentación del grupo, navegable con el teclado. | Alta |
 | RF-03 | El sitio muestra la ruta de trabajo con el estado de cada etapa. | Alta |
-| RF-04 | El sitio reúne los enlaces a los repositorios, pipelines, sitios publicados, Jira y Confluence. | Media |
+| RF-04 | El sitio reúne los enlaces a los repositorios, pipelines, sitios publicados y el espacio de Confluence. | Media |
 | RF-05 | El pie de página muestra la versión (commit), la plataforma, el entorno y la fecha de publicación. | Alta |
 | RF-06 | El sitio muestra una tabla con las métricas medidas en ambas plataformas. | Media |
 | RF-07 | El sitio ofrece la investigación en PDF mediante un enlace y un código QR. | Media |
