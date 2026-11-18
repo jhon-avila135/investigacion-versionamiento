@@ -200,6 +200,8 @@
         <dd>En GitLab la visibilidad se hereda: tuvimos que hacer público el grupo antes de crear el proyecto público.</dd>
         <dt>La PC guarda la cuenta equivocada</dt>
         <dd>El administrador de credenciales tenía una cuenta personal guardada. Si no se fija el usuario por repositorio, los commits se suben con otra identidad.</dd>
+        <dt>GitLab Pages tarda en ponerse de acuerdo</dt>
+        <dd>Justo después de un despliegue, el sitio de GitLab respondió unos segundos con la versión nueva y otros con la anterior, según el servidor que atendía. Por eso nuestro script solo da por publicado un cambio cuando lee la versión esperada tres veces seguidas.</dd>
         <dt>Los pipelines no se migran</dt>
         <dd>El código pasa de una plataforma a otra con un push; los pipelines hay que escribirlos de nuevo. Esa es la dependencia del proveedor que más pesa.</dd>
       </dl>
