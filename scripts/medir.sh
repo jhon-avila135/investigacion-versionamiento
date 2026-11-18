@@ -18,13 +18,17 @@ ANTES=$(leer_version)
 INICIO=$(date +%s)
 echo "Versión publicada ahora: $ANTES. Esperando la nueva..."
 
-while [ "$(leer_version)" = "$ANTES" ]; do
+# Si una consulta falla y vuelve vacía, no cuenta como versión nueva.
+while true; do
+  NUEVA=$(leer_version)
+  if [ -n "$NUEVA" ] && [ "$NUEVA" != "$ANTES" ]; then
+    break
+  fi
   sleep 5
 done
 
 FIN=$(date +%s)
 DURACION=$((FIN - INICIO))
-NUEVA=$(leer_version)
 
 [ -f mediciones.csv ] || echo "fecha,plataforma,version,segundos" > mediciones.csv
 echo "$(date +%F_%T),$PLAT,$NUEVA,$DURACION" >> mediciones.csv
