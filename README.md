@@ -8,8 +8,7 @@ Una página web con nuestra investigación, guardada con Git, que se publica sol
 
 - Sitio en GitHub Pages: https://jhon-avila135.github.io/investigacion-versionamiento/
 - Sitio en GitLab Pages: https://grupo2-versionamiento-uce.gitlab.io/investigacion-versionamiento/
-- Tablero en Jira: URL_JIRA
-- Documentación en Confluence: URL_CONFLUENCE
+- Confluence (ruta, tareas, SRS y decisiones): https://jhonavilat105.atlassian.net/wiki/spaces/G2V
 
 ## Estructura
 
