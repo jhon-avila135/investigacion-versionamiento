@@ -82,7 +82,7 @@
         <li><strong><a href="https://github.com/jhon-avila135/investigacion-versionamiento/pull/2">PR #2</a> · corregimos el validador.</strong> Al preparar la prueba de error vimos que el preset standard no revisaba accesibilidad; agregamos el preset a11y.</li>
         <li><strong><a href="https://github.com/jhon-avila135/investigacion-versionamiento/pull/3">PR #3</a> · error provocado.</strong> Quitamos el texto alternativo del QR: validate falló y GitHub bloqueó el merge. Lo dejamos abierto como evidencia.</li>
         <li><strong>GitLab Pages.</strong> Los tres primeros pipelines fallaron porque GitLab exige verificar la identidad antes de usar sus runners. Después de verificarla, el pipeline pasó en 47 segundos. Además, quitamos el dominio aleatorio y abrimos el acceso a Pages para todos, porque por defecto solo lo veían los miembros del proyecto.</li>
-        <li><strong>Mediciones.</strong> Con scripts/medir.sh: el script mira la versión publicada cada 5 segundos y guarda cuánto tardó en cambiar. Tuvimos que corregirlo: cuando una consulta fallaba y volvía vacía, el script la contaba como versión nueva y registró un tiempo falso de 385 segundos, que descartamos.</li>
+        <li><strong>Mediciones.</strong> Con scripts/medir.sh: el script mira la versión publicada cada 5 segundos y guarda cuánto tardó en cambiar. Lo corregimos dos veces: primero porque una consulta fallida (vacía) contaba como versión nueva, y después porque GitLab Pages respondía por unos segundos con versiones distintas según el servidor. Ahora el script espera la versión correcta tres veces seguidas; los datos falsos los descartamos.</li>
       </ol>
     </section>
 
