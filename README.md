@@ -1,42 +1,47 @@
-# Gestión de versionamiento · Grupo 2
+# Gestión de versionamiento con GitHub y GitLab
 
-Proyecto de Arquitectura de Software (Universidad Central del Ecuador).
+Proyecto del Grupo 2 para la asignatura Arquitectura de Software, Universidad Central del Ecuador.
 
-Una página web con nuestra investigación, guardada con Git, que se publica sola en GitHub y en GitLab cada vez que se aprueba un cambio. Además, medimos cuál de las dos plataformas lo hace mejor.
+Sitio estático que compara GitHub y GitLab a partir de un mismo caso práctico: el repositorio se versiona con Git, la rama principal está protegida y cada plataforma publica el sitio mediante su propio pipeline.
 
-## Enlaces
+## Sitios publicados
 
-- Sitio en GitHub Pages: https://jhon-avila135.github.io/investigacion-versionamiento/
-- Sitio en GitLab Pages: https://grupo2-versionamiento-uce.gitlab.io/investigacion-versionamiento/
-- Confluence (ruta, tareas, SRS y decisiones): https://jhonavilat105.atlassian.net/wiki/spaces/G2V
+- GitHub Pages: https://jhon-avila135.github.io/investigacion-versionamiento/
+- GitLab Pages: https://grupo2-versionamiento-uce.gitlab.io/investigacion-versionamiento/
+- Documentación del equipo (Confluence, acceso por invitación): https://jhonavilat105.atlassian.net/wiki/spaces/G2V
 
 ## Estructura
 
 ```
-public/                 Sitio que se publica (inicio, investigación y presentación)
-docs/SRS.md             Requisitos del proyecto (ISO/IEC/IEEE 29148)
-scripts/medir.sh        Mide el tiempo de entrega de cada despliegue
+public/                 Sitio publicado: informe, investigación y presentación
+docs/SRS.md             Especificación de requisitos (ISO/IEC/IEEE 29148)
+scripts/medir.sh        Medición del tiempo de entrega
+mediciones.csv          Registro de mediciones
 .github/workflows/      Pipeline de GitHub Actions
 .gitlab-ci.yml          Pipeline de GitLab CI
 .htmlvalidate.json      Reglas del validador de HTML
 ```
 
-## Cómo trabajar
+## Flujo de trabajo
 
-1. Crear una rama por tarea: `git switch -c feat/nombre-de-la-tarea`
-2. Hacer commits con Conventional Commits: `feat:`, `fix:`, `docs:`, `ci:`
-3. Subir la rama y abrir un pull request en GitHub.
-4. Esperar a que el job `validate` esté en verde y fusionar.
-5. Actualizar GitLab: `git switch main && git pull origin main && git push gitlab main`
+1. Crear una rama por tarea: `git switch -c tipo/descripcion`.
+2. Registrar los cambios con Conventional Commits (`feat`, `fix`, `docs`, `ci`, `chore`).
+3. Publicar la rama y abrir un pull request en GitHub.
+4. Fusionar solo cuando el check `validate` esté aprobado.
+5. Replicar en GitLab: `git switch main && git pull origin main && git push gitlab main`.
 
-## Validar en local
+## Validación local
 
 ```bash
 npx --yes html-validate "public/**/*.html"
 ```
 
-## Medir un despliegue
+## Medición
 
 ```bash
-./scripts/medir.sh URL_DEL_SITIO github
+# GitHub: ejecutar justo antes de fusionar el pull request
+./scripts/medir.sh https://jhon-avila135.github.io/investigacion-versionamiento/ github
+
+# GitLab: indicar la versión esperada y luego ejecutar git push gitlab main
+./scripts/medir.sh https://grupo2-versionamiento-uce.gitlab.io/investigacion-versionamiento/ gitlab $(git rev-parse --short=8 HEAD)
 ```

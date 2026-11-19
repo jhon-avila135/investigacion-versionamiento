@@ -4,6 +4,7 @@
   if (slides.length === 0) return;
 
   document.body.classList.add("js-deck");
+  slides.forEach((s, i) => { s.dataset.numero = (i + 1) + " / " + slides.length; });
   const contador = document.getElementById("contador");
   let actual = 0;
 

@@ -4,123 +4,118 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Presentación · Gestión de versionamiento</title>
-  <meta name="description" content="Presentación del Grupo 2: GitHub frente a GitLab con un proyecto real.">
+  <meta name="description" content="Presentación del Grupo 2: GitHub y GitLab a partir de un caso práctico.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@400;600&amp;family=Space+Grotesk:wght@500;700&amp;display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Serif:wght@500;600&amp;display=swap">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="presentacion.css">
 </head>
 <body class="deck">
-  <nav class="barra" aria-label="Navegación principal">
-    <a class="marca" href="index.html">Grupo 2 <span>·</span> Versionamiento</a>
-    <a href="index.html">Inicio</a>
-    <a href="index.html#como-lo-hicimos">Cómo lo hicimos</a>
-    <a href="investigacion.html">Investigación</a>
-    <a href="presentacion.html" aria-current="page">Presentación</a>
-    <a href="index.html#enlaces">Enlaces</a>
-  </nav>
-  <p class="ayuda">Usa las flechas del teclado para avanzar y retroceder. La tecla F activa la pantalla completa.</p>
+  <header class="encabezado">
+    <a class="sigla" href="index.html">Gestión de versionamiento <span>· Grupo 2</span></a>
+    <nav aria-label="Navegación principal">
+      <a href="index.html">Informe</a>
+      <a href="investigacion.html">Investigación</a>
+      <a href="presentacion.html" aria-current="page">Presentación</a>
+      <a href="index.html#recursos">Recursos</a>
+    </nav>
+  </header>
+  <p class="ayuda">Flechas del teclado para avanzar o retroceder; tecla F para pantalla completa.</p>
 
   <main class="diapositivas">
-    <section class="slide oscura" id="portada">
-      <p class="eyebrow">Arquitectura de Software · Grupo 2</p>
-      <h1>Gestión de versionamiento</h1>
-      <p class="grande">GitHub frente a GitLab, con el mismo proyecto desplegado, protegido y medido en las dos plataformas.</p>
-      <p>Universidad Central del Ecuador · Noviembre 2026</p>
+    <section class="slide portada-lamina" id="portada">
+      <p class="seccion-lamina">Universidad Central del Ecuador · Arquitectura de Software</p>
+      <h1>Gestión de versionamiento con GitHub y GitLab</h1>
+      <p class="grande">Comparación a partir de un sitio desplegado, protegido y medido en ambas plataformas.</p>
+      <p class="datos">Grupo 2 · Noviembre de 2026</p>
     </section>
 
-    <section class="slide" id="agenda">
-      <p class="eyebrow">30 minutos</p>
-      <h2>Agenda</h2>
+    <section class="slide" id="contenido">
+      <p class="seccion-lamina">Gestión de versionamiento · Grupo 2</p>
+      <h2>Contenido</h2>
       <div class="tabla">
         <table>
-          <thead><tr><th scope="col">#</th><th scope="col">Tema</th><th scope="col">Tiempo</th></tr></thead>
+          <thead><tr><th scope="col">Tema</th><th scope="col" class="cifra">Tiempo</th></tr></thead>
           <tbody>
-            <tr><td>01</td><td>Qué hicimos y diferencias de modelo</td><td>5 min</td></tr>
-            <tr><td>02</td><td>Cómo se despliega en cada uno</td><td>6 min</td></tr>
-            <tr><td>03</td><td>Reglas, con demo en vivo</td><td>5 min</td></tr>
-            <tr><td>04</td><td>Variables, rollback y comandos</td><td>5 min</td></tr>
-            <tr><td>05</td><td>Cuenta educativa frente a cuenta normal</td><td>4 min</td></tr>
-            <tr><td>06</td><td>Resultados, hallazgos y conclusiones</td><td>5 min</td></tr>
+            <tr><td>1. Contexto y caso práctico</td><td class="cifra">4 min</td></tr>
+            <tr><td>2. Diferencias de modelo</td><td class="cifra">4 min</td></tr>
+            <tr><td>3. Despliegue en cada plataforma</td><td class="cifra">6 min</td></tr>
+            <tr><td>4. Reglas de protección y demostración</td><td class="cifra">5 min</td></tr>
+            <tr><td>5. Variables, reversión y comandos</td><td class="cifra">4 min</td></tr>
+            <tr><td>6. Cuentas educativas</td><td class="cifra">3 min</td></tr>
+            <tr><td>7. Resultados, hallazgos y conclusiones</td><td class="cifra">4 min</td></tr>
           </tbody>
         </table>
       </div>
     </section>
 
-    <section class="slide" id="cifras">
-      <p class="eyebrow">Contexto</p>
-      <h2>Por qué importa</h2>
-      <div class="grid">
-        <div><p class="cifra">93 %</p><p>de los desarrolladores usa Git (Stack Overflow, 2022).</p></div>
-        <div><p class="cifra">180 M+</p><p>desarrolladores en GitHub (Octoverse 2025).</p></div>
-        <div><p class="cifra">2</p><p>plataformas, un mismo proyecto: así comparamos con datos propios.</p></div>
+    <section class="slide" id="contexto">
+      <p class="seccion-lamina">1. Contexto y caso práctico</p>
+      <h2>Contexto</h2>
+      <div class="cifras">
+        <div><p class="valor">93 %</p><p>de los desarrolladores usa Git (Stack Overflow, 2022).</p></div>
+        <div><p class="valor">180 M+</p><p>desarrolladores registrados en GitHub (Octoverse 2025).</p></div>
+        <div><p class="valor">2</p><p>plataformas evaluadas con el mismo proyecto.</p></div>
       </div>
     </section>
 
-    <section class="slide oscura" id="que-hicimos">
-      <p class="eyebrow">01 · Nuestro proyecto</p>
-      <h2>Lo usamos para lo mismo y lo medimos</h2>
-      <div class="flujo">
-        <div class="paso"><strong>Rama + PR</strong><span>GitHub</span></div>
-        <div class="flecha" aria-hidden="true">→</div>
-        <div class="paso destacado"><strong>validate</strong><span>obligatorio</span></div>
-        <div class="flecha" aria-hidden="true">→</div>
-        <div class="paso"><strong>Merge</strong><span>solo en verde</span></div>
-        <div class="flecha" aria-hidden="true">→</div>
-        <div class="paso destacado"><strong>Pages</strong><span>GitHub y GitLab</span></div>
-      </div>
-      <p>El pie del sitio muestra la plataforma, el commit y la fecha: lo escriben las variables de cada pipeline.</p>
+    <section class="slide" id="caso">
+      <p class="seccion-lamina">1. Contexto y caso práctico</p>
+      <h2>Caso práctico</h2>
+      <ul>
+        <li>Sitio estático con la investigación y esta presentación.</li>
+        <li>GitHub como repositorio principal; GitLab como réplica.</li>
+        <li>Cada cambio entra por pull request y se valida antes de llegar a <code>main</code>.</li>
+        <li>Cada plataforma despliega su copia con su propio pipeline.</li>
+        <li>El pie de página muestra la plataforma, el commit y la fecha de publicación.</li>
+      </ul>
     </section>
 
     <section class="slide" id="modelo">
-      <p class="eyebrow">01 · Diferencias</p>
-      <h2>La diferencia es de modelo</h2>
+      <p class="seccion-lamina">2. Diferencias de modelo</p>
+      <h2>Diferencias de modelo</h2>
       <div class="tabla">
         <table>
           <thead><tr><th scope="col">Aspecto</th><th scope="col">GitHub</th><th scope="col">GitLab</th></tr></thead>
           <tbody>
-            <tr><td>CI/CD</td><td>Por eventos, acciones reutilizables</td><td>Por stages, include y plantillas</td></tr>
-            <tr><td>Dónde corre</td><td>runs-on: una máquina</td><td>image: un contenedor</td></tr>
-            <tr><td>Publicar</td><td>Pasos explícitos</td><td>Convención: job pages</td></tr>
-            <tr><td>Organización</td><td>Organizaciones planas</td><td>Grupos y subgrupos con herencia</td></tr>
-            <tr><td>Instalación propia</td><td>De pago</td><td>Community Edition gratis</td></tr>
-            <tr><td>Primer pipeline</td><td>Inmediato</td><td>Exige verificar identidad</td></tr>
+            <tr><td>CI/CD</td><td>Eventos y acciones reutilizables</td><td>Etapas y plantillas</td></tr>
+            <tr><td>Ejecución</td><td>Máquina virtual</td><td>Contenedor</td></tr>
+            <tr><td>Publicación</td><td>Pasos explícitos</td><td>Convención: job <code>pages</code></td></tr>
+            <tr><td>Organización</td><td>Organizaciones</td><td>Grupos con herencia</td></tr>
+            <tr><td>Instalación propia</td><td>De pago</td><td>Gratuita (Community Edition)</td></tr>
           </tbody>
         </table>
       </div>
     </section>
 
     <section class="slide" id="pipeline-github">
-      <p class="eyebrow">02 · Despliegue en GitHub</p>
-      <h2>.github/workflows/deploy.yml</h2>
+      <p class="seccion-lamina">3. Despliegue en cada plataforma</p>
+      <h2>GitHub Actions</h2>
       <pre><code>permissions:
   pages: write
-  id-token: write               # token OIDC: cero contraseñas guardadas
+  id-token: write              # token OIDC temporal
 jobs:
   validate:
     steps:
       - run: npx --yes html-validate "public/**/*.html"
   deploy:
-    needs: validate             # sin validación no hay despliegue
-    environment: github-pages   # historial de despliegues
+    needs: validate            # sin validación no hay despliegue
+    environment: github-pages
     steps:
-      - run: sed -i "s|__VERSION__|${GITHUB_SHA::7}|g" public/*.html
       - uses: actions/upload-pages-artifact@v3
       - uses: actions/deploy-pages@v4</code></pre>
     </section>
 
     <section class="slide" id="pipeline-gitlab">
-      <p class="eyebrow">02 · Despliegue en GitLab</p>
-      <h2>.gitlab-ci.yml</h2>
+      <p class="seccion-lamina">3. Despliegue en cada plataforma</p>
+      <h2>GitLab CI</h2>
       <pre><code>stages: [validate, deploy]
 validate:
   image: node:22-alpine
   script:
     - npx --yes html-validate "public/**/*.html"
-pages:                          # el nombre activa GitLab Pages
+pages:                         # el nombre activa GitLab Pages
   stage: deploy
-  script:
-    - sed -i "s|__VERSION__|$CI_COMMIT_SHORT_SHA|g" public/*.html
   artifacts:
     paths: [public]
   rules:
@@ -128,159 +123,180 @@ pages:                          # el nombre activa GitLab Pages
     </section>
 
     <section class="slide" id="reglas">
-      <p class="eyebrow">03 · Reglas</p>
-      <h2>Cómo cada uno protege main</h2>
-      <div class="dos">
-        <article class="tarjeta github"><span class="etiqueta">GitHub · Ruleset proteger-main</span><ul><li>PR obligatorio</li><li>Check validate obligatorio</li><li>Sin force push ni borrado</li><li>Sin excepciones, ni para el dueño</li></ul></article>
-        <article class="tarjeta gitlab"><span class="etiqueta">GitLab · Rama protegida</span><ul><li>Push y merge solo Maintainers</li><li>Pipelines must succeed (gratis)</li><li>Aprobaciones obligatorias: Premium</li><li>CODEOWNERS: Premium</li></ul></article>
-      </div>
-      <p class="nota">En GitHub Free estas reglas solo aplican a repos públicos; en privados se necesita Pro, que viene con GitHub Education.</p>
-    </section>
-
-    <section class="slide oscura" id="demo">
-      <p class="eyebrow">03 · Demo</p>
-      <h2>Rompimos el HTML a propósito</h2>
-      <p class="grande">PR #3: quitamos el texto alternativo del QR. validate falló y GitHub bloqueó el merge.</p>
-      <p>Y antes descubrimos algo mejor: el validador no lo detectaba. El preset standard no revisa accesibilidad; lo corregimos en el PR #2. La regla solo protege si alguien la prueba.</p>
-    </section>
-
-    <section class="slide" id="variables">
-      <p class="eyebrow">04 · Variables</p>
-      <h2>Configuración fuera del código</h2>
+      <p class="seccion-lamina">4. Reglas de protección</p>
+      <h2>Protección de la rama principal</h2>
       <div class="tabla">
         <table>
-          <thead><tr><th scope="col">Tema</th><th scope="col">GitHub</th><th scope="col">GitLab</th></tr></thead>
+          <thead><tr><th scope="col">Mecanismo</th><th scope="col">GitHub</th><th scope="col">GitLab</th></tr></thead>
           <tbody>
-            <tr><td>Niveles</td><td>Org, repo, environment</td><td>Grupo (heredable), proyecto</td></tr>
-            <tr><td>Sensibles</td><td>secrets</td><td>Masked / Masked and hidden</td></tr>
-            <tr><td>Proteger producción</td><td>Environments con revisores</td><td>Protected: solo ramas protegidas</td></tr>
-            <tr><td>Predefinidas</td><td>GITHUB_SHA</td><td>CI_COMMIT_SHORT_SHA</td></tr>
+            <tr><td>Configuración</td><td>Rulesets</td><td>Ramas protegidas</td></tr>
+            <tr><td>CI obligatorio</td><td>Status checks</td><td>Pipelines must succeed</td></tr>
+            <tr><td>Aprobaciones obligatorias</td><td>Incluidas</td><td>Plan Premium</td></tr>
+            <tr><td>CODEOWNERS</td><td>Incluido</td><td>Plan Premium</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="nota">Nuestra variable ENTORNO es protegida en GitLab: una rama de prueba nunca la ve.</p>
+      <p class="nota">En repositorios privados de GitHub, estas reglas requieren el plan Pro, incluido en GitHub Education.</p>
     </section>
 
-    <section class="slide" id="gestion">
-      <p class="eyebrow">04 · Gestión de despliegues</p>
-      <h2>Rollback y comandos que usamos</h2>
-      <pre><code>git remote add gitlab URL           # segundo destino
-git push gitlab main                # dispara GitLab CI
-git config credential.https://github.com.username USUARIO
-git rebase main                     # rama al día antes del PR
-git push --force-with-lease         # solo tu rama; en main está bloqueado
-git revert HEAD                     # rollback sin reescribir historia
-git tag -a v1.0.0 -m "entrega"      # versión que se entrega</code></pre>
+    <section class="slide" id="demostracion">
+      <p class="seccion-lamina">4. Reglas de protección</p>
+      <h2>Demostración: PR #3</h2>
+      <div class="dos-columnas">
+        <ul>
+          <li>Se eliminó el texto alternativo de una imagen.</li>
+          <li>El job <code>validate</code> falló.</li>
+          <li>GitHub bloqueó la fusión.</li>
+        </ul>
+        <div class="destacado"><p>Antes de esta prueba, el validador no detectaba el error: el preset estándar no revisa accesibilidad. Se corrigió en el PR #2.</p></div>
+      </div>
+    </section>
+
+    <section class="slide" id="variables">
+      <p class="seccion-lamina">5. Variables, reversión y comandos</p>
+      <h2>Variables</h2>
+      <div class="tabla">
+        <table>
+          <thead><tr><th scope="col">Aspecto</th><th scope="col">GitHub</th><th scope="col">GitLab</th></tr></thead>
+          <tbody>
+            <tr><td>Niveles</td><td>Organización, repositorio, entorno</td><td>Grupo (heredable), proyecto</td></tr>
+            <tr><td>Datos sensibles</td><td><code>secrets</code></td><td>Masked, masked and hidden</td></tr>
+            <tr><td>Producción</td><td>Entornos con revisores</td><td>Variables protegidas</td></tr>
+            <tr><td>Predefinidas</td><td><code>GITHUB_SHA</code></td><td><code>CI_COMMIT_SHORT_SHA</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="nota">La variable <code>ENTORNO</code> es protegida en GitLab: una rama de prueba no la recibe.</p>
+    </section>
+
+    <section class="slide" id="comandos">
+      <p class="seccion-lamina">5. Variables, reversión y comandos</p>
+      <h2>Reversión y comandos</h2>
+      <pre><code>git remote add gitlab URL         # segundo remoto
+git push gitlab main              # réplica y despliegue en GitLab
+git rebase main                   # actualizar la rama antes del PR
+git push --force-with-lease       # solo la rama propia
+git revert HEAD                   # reversión sin reescribir historial
+git tag -a v1.0.0 -m "entrega"    # versión de entrega</code></pre>
     </section>
 
     <section class="slide" id="educacion-github">
-      <p class="eyebrow">05 · Correo institucional</p>
-      <h2>GitHub: el beneficio es para el estudiante</h2>
+      <p class="seccion-lamina">6. Cuentas educativas</p>
+      <h2>GitHub Education</h2>
       <div class="tabla">
         <table>
           <thead><tr><th scope="col">Aspecto</th><th scope="col">Free</th><th scope="col">Education</th></tr></thead>
           <tbody>
-            <tr><td>Reglas en repos privados</td><td>No</td><td>Sí (beneficios de Pro)</td></tr>
+            <tr><td>Solicitante</td><td>Cualquier usuario</td><td>Estudiante verificado</td></tr>
+            <tr><td>Reglas en repositorios privados</td><td>No</td><td>Sí</td></tr>
             <tr><td>Codespaces</td><td>120 h-núcleo/mes</td><td>180 h-núcleo/mes</td></tr>
-            <tr><td>Copilot</td><td>Gratis con límites</td><td>Premium gratis</td></tr>
-            <tr><td>Extras</td><td>Ninguno</td><td>Student Developer Pack</td></tr>
+            <tr><td>Copilot</td><td>Gratuito con límites</td><td>Premium sin costo</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="nota">Requisito: correo académico verificado y prueba de matrícula. Se pierde si deja de verificarse.</p>
+      <p class="nota">El beneficio se otorga al estudiante.</p>
     </section>
 
     <section class="slide" id="educacion-gitlab">
-      <p class="eyebrow">05 · Correo institucional</p>
-      <h2>GitLab: el beneficio es para la institución</h2>
+      <p class="seccion-lamina">6. Cuentas educativas</p>
+      <h2>GitLab for Education</h2>
       <div class="tabla">
         <table>
           <thead><tr><th scope="col">Aspecto</th><th scope="col">Free</th><th scope="col">for Education</th></tr></thead>
           <tbody>
-            <tr><td>Quién lo pide</td><td>Cualquiera</td><td>Docentes o personal, no estudiantes</td></tr>
-            <tr><td>Plan</td><td>Free</td><td>Ultimate, asientos ilimitados, 1 año renovable</td></tr>
+            <tr><td>Solicitante</td><td>Cualquier usuario</td><td>Docentes o personal</td></tr>
+            <tr><td>Plan</td><td>Free</td><td>Ultimate, renovable cada año</td></tr>
             <tr><td>Minutos de CI</td><td>400/mes</td><td>50 000/mes</td></tr>
-            <tr><td>Uso</td><td>Libre</td><td>Solo enseñanza e investigación</td></tr>
+            <tr><td>Uso</td><td>Sin restricción</td><td>Docencia e investigación</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="nota">Nuestra cuenta de GitLab con correo de la UCE es una cuenta Free normal.</p>
+      <p class="nota">El beneficio se otorga a la institución.</p>
     </section>
 
     <section class="slide" id="resultados">
-      <p class="eyebrow">06 · Evidencia</p>
-      <h2>Resultados medidos</h2>
+      <p class="seccion-lamina">7. Resultados, hallazgos y conclusiones</p>
+      <h2>Resultados</h2>
       <div class="tabla">
         <table>
-          <thead><tr><th scope="col">Plataforma</th><th scope="col">Pipelines</th><th scope="col">Duración del pipeline</th><th scope="col">Tiempo de entrega</th></tr></thead>
+          <thead><tr><th scope="col">Plataforma</th><th scope="col" class="cifra">Duración del pipeline</th><th scope="col" class="cifra">Tiempo de entrega</th></tr></thead>
           <tbody>
-            <tr><td>GitHub Pages</td><td>6</td><td>35,5 s</td><td>49,4 s (n = 7)</td></tr>
-            <tr><td>GitLab Pages</td><td>2</td><td>47,5 s</td><td>60 s (n = 1)</td></tr>
+            <tr><td>GitHub Pages</td><td class="cifra">35,5 s (n = 6)</td><td class="cifra">49,4 s (n = 7)</td></tr>
+            <tr><td>GitLab Pages</td><td class="cifra">47,5 s (n = 2)</td><td class="cifra">60 s (n = 1)</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="nota">El tiempo de entrega incluye la publicación después del pipeline. Meta: 20 despliegues por plataforma entre los cuatro. Métrica DORA (Forsgren, Humble y Kim, 2018).</p>
+      <p class="nota">Tiempo de entrega: métrica DORA (Forsgren, Humble y Kim, 2018). Meta: 20 mediciones por plataforma.</p>
     </section>
 
     <section class="slide" id="hallazgos">
-      <p class="eyebrow">06 · Hallazgos</p>
-      <h2>Lo que no esperábamos</h2>
+      <p class="seccion-lamina">7. Resultados, hallazgos y conclusiones</p>
+      <h2>Hallazgos</h2>
       <ul>
-        <li><strong>El validador estaba a medias:</strong> una imagen sin alt pasaba.</li>
-        <li><strong>El commit publicado no es el de tu PC:</strong> el merge crea otro.</li>
-        <li><strong>Un proyecto público no cabe en un grupo privado</strong> en GitLab.</li>
-        <li><strong>GitLab Pages tarda en ponerse de acuerdo:</strong> por unos segundos sirve la versión nueva y la anterior.</li>
-        <li><strong>La PC tenía guardada otra cuenta:</strong> hay que fijar el usuario por repositorio.</li>
-        <li><strong>Los pipelines no se migran:</strong> escribimos dos. Esa es la verdadera dependencia del proveedor.</li>
+        <li>La validación omitía la accesibilidad hasta probarla con un caso real.</li>
+        <li>El commit publicado tras un merge difiere del commit local.</li>
+        <li>GitLab no admite un proyecto público dentro de un grupo privado.</li>
+        <li>GitLab Pages sirvió por unos segundos versiones distintas tras cada despliegue.</li>
+        <li>Los pipelines no son compatibles entre plataformas.</li>
       </ul>
     </section>
 
-    <section class="slide" id="elegir">
-      <p class="eyebrow">06 · Decisión</p>
-      <h2>¿Cuál elegir?</h2>
-      <div class="dos">
-        <article class="tarjeta github"><span class="etiqueta">GitHub si…</span><ul><li>Proyecto de estudiantes o código abierto</li><li>Portafolio y comunidad</li><li>Se aprovecha el Student Pack</li></ul></article>
-        <article class="tarjeta gitlab"><span class="etiqueta">GitLab si…</span><ul><li>Se instala en servidores propios</li><li>Todo el ciclo en una herramienta</li><li>La universidad tiene la licencia educativa</li></ul></article>
+    <section class="slide" id="seleccion">
+      <p class="seccion-lamina">7. Resultados, hallazgos y conclusiones</p>
+      <h2>Criterios de selección</h2>
+      <div class="dos-columnas">
+        <div>
+          <h3>GitHub</h3>
+          <ul><li>Proyectos académicos y de código abierto</li><li>Beneficios para estudiantes</li><li>Ecosistema de integraciones</li></ul>
+        </div>
+        <div>
+          <h3>GitLab</h3>
+          <ul><li>Instalación en servidores propios</li><li>Ciclo completo en una herramienta</li><li>Grupos con herencia</li></ul>
+        </div>
       </div>
     </section>
 
-    <section class="slide oscura" id="conclusiones">
-      <p class="eyebrow">Conclusiones</p>
-      <h2>Lo que queremos que recuerden</h2>
+    <section class="slide" id="conclusiones">
+      <p class="seccion-lamina">7. Resultados, hallazgos y conclusiones</p>
+      <h2>Conclusiones</h2>
       <ol>
-        <li class="grande">GitHub y GitLab hacen lo mismo con modelos distintos: eventos y ecosistema frente a etapas y plataforma única.</li>
-        <li class="grande">Una regla solo protege si se prueba: nuestro validador fallaba en silencio.</li>
-        <li class="grande">El correo institucional pesa más en GitHub; en GitLab depende de la universidad.</li>
+        <li>Ambas plataformas resuelven las mismas necesidades con modelos distintos.</li>
+        <li>Una regla de protección solo es efectiva si se verifica.</li>
+        <li>El correo institucional tiene más impacto en GitHub; en GitLab depende de la universidad.</li>
       </ol>
     </section>
 
-    <section class="slide alterna" id="fuentes">
-      <p class="eyebrow">Sustento</p>
-      <h2>Fuentes</h2>
+    <section class="slide" id="referencias">
+      <p class="seccion-lamina">Gestión de versionamiento · Grupo 2</p>
+      <h2>Referencias</h2>
       <ul>
-        <li>GitHub Docs: GitHub's plans, rulesets, secrets, Pages, GitHub Education.</li>
-        <li>GitLab: GitLab for Education Program · GitLab Docs: compute minutes, storage, CI/CD variables, protected branches, Pages.</li>
-        <li>Forsgren, Humble y Kim (2018). Accelerate · Octoverse 2025 · Stack Overflow Developer Survey 2022.</li>
-        <li>ISO/IEC/IEEE 29148:2018 · html-validate.org</li>
+        <li>Forsgren, N., Humble, J. y Kim, G. (2018). <em>Accelerate</em>. IT Revolution.</li>
+        <li>GitHub Docs: planes, rulesets, secrets, Pages y GitHub Education.</li>
+        <li>GitLab: GitLab for Education Program; GitLab Docs: variables, ramas protegidas y Pages.</li>
+        <li>GitHub (2025). <em>Octoverse 2025</em>. Stack Overflow (2022). <em>Developer Survey</em>.</li>
+        <li>ISO/IEC/IEEE 29148:2018.</li>
       </ul>
     </section>
 
-    <section class="slide oscura" id="preguntas">
-      <p class="eyebrow">Grupo 2</p>
-      <h1>¿Preguntas?</h1>
-      <pre><code>git commit -m "docs: gracias por su atención"</code></pre>
+    <section class="slide cierre" id="preguntas">
+      <p class="seccion-lamina">Grupo 2</p>
+      <h2>Preguntas</h2>
+      <p class="grande">Informe, investigación y recursos: jhon-avila135.github.io/investigacion-versionamiento</p>
     </section>
   </main>
 
   <div class="controles">
-    <button type="button" id="anterior" aria-label="Diapositiva anterior">←</button>
+    <button type="button" id="anterior" aria-label="Lámina anterior">Anterior</button>
     <output id="contador" aria-live="polite">1 / 1</output>
-    <button type="button" id="siguiente" aria-label="Diapositiva siguiente">→</button>
+    <button type="button" id="siguiente" aria-label="Lámina siguiente">Siguiente</button>
     <button type="button" id="completa">Pantalla completa</button>
   </div>
 
-  <footer>
-    <p>Versión: <code>__VERSION__</code> · Plataforma: __PLATAFORMA__ · Entorno: __ENTORNO__ · Publicado: __FECHA__</p>
+  <footer class="pie">
+    <div class="interior">
+      <p>Grupo 2 · Arquitectura de Software · Universidad Central del Ecuador</p>
+      <p>Versión <code>__VERSION__</code> · __PLATAFORMA__ · Entorno: __ENTORNO__ · Publicado: __FECHA__</p>
+    </div>
   </footer>
   <script src="presentacion.js"></script>
 </body>

@@ -4,238 +4,265 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Investigación · Gestión de versionamiento</title>
-  <meta name="description" content="GitHub frente a GitLab: diferencias, despliegue, reglas, variables, comandos, cuentas educativas y nuestro ejemplo práctico.">
+  <meta name="description" content="GitHub y GitLab: diferencias, despliegue, reglas, variables, comandos y cuentas educativas.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@400;600&amp;family=Space+Grotesk:wght@500;700&amp;display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Serif:wght@500;600&amp;display=swap">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <nav class="barra" aria-label="Navegación principal">
-    <a class="marca" href="index.html">Grupo 2 <span>·</span> Versionamiento</a>
-    <a href="index.html">Inicio</a>
-    <a href="index.html#como-lo-hicimos">Cómo lo hicimos</a>
-    <a href="investigacion.html" aria-current="page">Investigación</a>
-    <a href="presentacion.html">Presentación</a>
-    <a href="index.html#enlaces">Enlaces</a>
-  </nav>
-
-  <header class="hero">
-    <p class="eyebrow">Investigación</p>
-    <h1>GitHub frente a GitLab</h1>
-    <p class="lead">No nos quedamos en "uno tiene PR y el otro MR". Configuramos las dos plataformas para desplegar el mismo sitio y aquí contamos qué cambia de verdad: cómo despliegan, cómo protegen la rama principal, cómo manejan variables y qué nos da a cada uno el correo institucional.</p>
+  <header class="encabezado">
+    <a class="sigla" href="index.html">Gestión de versionamiento <span>· Grupo 2</span></a>
+    <nav aria-label="Navegación principal">
+      <a href="index.html">Informe</a>
+      <a href="investigacion.html" aria-current="page">Investigación</a>
+      <a href="presentacion.html">Presentación</a>
+      <a href="index.html#recursos">Recursos</a>
+    </nav>
   </header>
 
-  <main>
-    <section class="bloque" id="contenido">
-      <h2>Contenido</h2>
-      <ol class="indice">
-        <li><a href="#diferencias">Diferencias de fondo</a></li>
-        <li><a href="#despliegue">Cómo se despliega en cada uno</a></li>
-        <li><a href="#reglas">Reglas sobre main</a></li>
-        <li><a href="#variables">Variables y gestión de despliegues</a></li>
-        <li><a href="#comandos">Comandos que usamos</a></li>
-        <li><a href="#educacion">Cuenta educativa frente a cuenta normal</a></li>
-        <li><a href="#practico">Ejemplo práctico</a></li>
-        <li><a href="#hallazgos">Lo que no esperábamos</a></li>
-        <li><a href="#elegir">Cuándo elegir cada uno</a></li>
-        <li><a href="#fuentes">Fuentes</a></li>
+  <section class="portada" aria-labelledby="titulo">
+    <div class="interior">
+      <p class="institucion">Universidad Central del Ecuador · Arquitectura de Software · Grupo 2</p>
+      <h1 id="titulo">GitHub y GitLab: análisis comparativo</h1>
+      <p class="subtitulo">Diferencias de modelo, despliegue, reglas de protección, gestión de variables, comandos y condiciones de las cuentas educativas, contrastadas con la implementación del proyecto.</p>
+    </div>
+  </section>
+
+  <div class="documento">
+    <nav class="indice-lateral" aria-label="Contenido de la investigación">
+      <p>Contenido</p>
+      <ol>
+        <li><a href="#diferencias">1. Diferencias</a></li>
+        <li><a href="#despliegue">2. Despliegue</a></li>
+        <li><a href="#reglas">3. Reglas</a></li>
+        <li><a href="#variables">4. Variables</a></li>
+        <li><a href="#comandos">5. Comandos</a></li>
+        <li><a href="#educacion">6. Cuentas educativas</a></li>
+        <li><a href="#hallazgos">7. Hallazgos</a></li>
+        <li><a href="#seleccion">8. Selección</a></li>
+        <li><a href="#conclusiones">9. Conclusiones</a></li>
+        <li><a href="#referencias">10. Referencias</a></li>
       </ol>
-    </section>
+    </nav>
 
-    <section class="bloque" id="diferencias">
-      <p class="eyebrow">1 · Diferencias</p>
-      <h2>La diferencia real es de modelo, no de botones</h2>
-      <p>GitHub es una plataforma alrededor de una comunidad y un ecosistema: casi todo se arma combinando piezas (acciones del Marketplace, apps, integraciones). GitLab es una sola aplicación que intenta cubrir todo el ciclo DevSecOps y que además se puede instalar en servidores propios. Eso se nota en cada detalle técnico:</p>
-      <div class="tabla">
-        <table>
-          <thead>
-            <tr><th scope="col">Aspecto</th><th scope="col">GitHub</th><th scope="col">GitLab</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Modelo de CI/CD</td><td>Por eventos: un workflow reacciona a push, PR, horario o a mano. Los pasos se reutilizan como acciones (uses: actions/checkout@v4).</td><td>Por etapas: stages que corren en orden y jobs dentro de cada etapa. Se reutiliza con include, extends y plantillas.</td></tr>
-            <tr><td>Dónde corre cada job</td><td>Se elige la máquina (runs-on: ubuntu-latest).</td><td>Se elige el contenedor (image: node:22-alpine) sobre un runner compartido o propio.</td></tr>
-            <tr><td>Publicar un sitio</td><td>Pasos explícitos: subir el artefacto y desplegarlo con acciones oficiales.</td><td>Convención: un job llamado pages que deje la carpeta public como artefacto.</td></tr>
-            <tr><td>Organización</td><td>Organizaciones y equipos, sin niveles intermedios.</td><td>Grupos y subgrupos; permisos y variables se heredan hacia abajo.</td></tr>
-            <tr><td>Instalación propia</td><td>Enterprise Server, solo de pago.</td><td>Community Edition gratuita y de código abierto.</td></tr>
-            <tr><td>Antes del primer pipeline</td><td>Funciona de inmediato.</td><td>En GitLab.com hay que verificar la identidad (teléfono o tarjeta) para usar los runners compartidos; es una medida contra el abuso de cómputo.</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
+    <main class="contenido">
+      <section class="seccion" id="diferencias">
+        <h2><span class="num">1.</span>Diferencias de modelo</h2>
+        <p>Ambas plataformas alojan repositorios Git, pero parten de enfoques distintos. GitHub se organiza alrededor de una comunidad y de un ecosistema de integraciones; la mayoría de las funciones se componen con piezas reutilizables. GitLab se presenta como una aplicación única para todo el ciclo DevSecOps y puede instalarse en servidores propios.</p>
+        <div class="tabla">
+          <table>
+            <caption><strong>Tabla 1.</strong> Diferencias técnicas relevantes para el proyecto.</caption>
+            <thead>
+              <tr><th scope="col">Aspecto</th><th scope="col">GitHub</th><th scope="col">GitLab</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Modelo de CI/CD</td><td>Basado en eventos (push, pull request, horario o ejecución manual). Los pasos se reutilizan como acciones.</td><td>Basado en etapas que se ejecutan en orden. La reutilización se hace con <code>include</code>, <code>extends</code> y plantillas.</td></tr>
+              <tr><td>Entorno de ejecución</td><td>Se elige la máquina virtual (<code>runs-on</code>).</td><td>Se elige la imagen del contenedor (<code>image</code>).</td></tr>
+              <tr><td>Publicación de un sitio</td><td>Pasos explícitos con acciones oficiales.</td><td>Convención: un job llamado <code>pages</code> que entrega la carpeta <code>public</code>.</td></tr>
+              <tr><td>Organización</td><td>Organizaciones y equipos, sin niveles intermedios.</td><td>Grupos y subgrupos; permisos y variables se heredan.</td></tr>
+              <tr><td>Instalación propia</td><td>Enterprise Server, con licencia de pago.</td><td>Community Edition, gratuita y de código abierto.</td></tr>
+              <tr><td>Primer uso de CI</td><td>Disponible al crear la cuenta.</td><td>Requiere verificar la identidad para usar los runners compartidos.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
 
-    <section class="bloque" id="despliegue">
-      <p class="eyebrow">2 · Despliegue</p>
-      <h2>Cómo se despliega en cada uno</h2>
-      <div class="grid">
-        <article class="tarjeta github">
-          <span class="etiqueta">GitHub Actions → GitHub Pages</span>
-          <h3>Dos jobs y un entorno</h3>
-          <p>validate revisa el HTML; deploy depende de él (needs) y solo corre en main. El sitio se empaqueta con upload-pages-artifact y se publica con deploy-pages en el entorno github-pages, que guarda el historial de despliegues. No hay ninguna contraseña guardada: el permiso id-token: write hace que GitHub emita un token OIDC temporal para cada ejecución.</p>
-        </article>
-        <article class="tarjeta gitlab">
-          <span class="etiqueta">GitLab CI → GitLab Pages</span>
-          <h3>Dos stages y una convención</h3>
-          <p>validate corre en un contenedor de Node; pages corre en Alpine, reemplaza las variables en el HTML y deja public como artefacto. GitLab detecta el nombre del job y publica solo. La regla if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH evita que una rama cualquiera publique.</p>
-        </article>
-      </div>
-      <p>En los dos casos el pipeline es la única forma de llegar a producción: nadie sube archivos a mano. Los archivos completos están en el <a href="https://github.com/jhon-avila135/investigacion-versionamiento/blob/main/.github/workflows/deploy.yml">workflow de GitHub</a> y en el <a href="https://gitlab.com/grupo2-versionamiento-uce/investigacion-versionamiento/-/blob/main/.gitlab-ci.yml">.gitlab-ci.yml</a>.</p>
-    </section>
+      <section class="seccion" id="despliegue">
+        <h2><span class="num">2.</span>Despliegue en cada plataforma</h2>
+        <h3><span class="num">2.1</span>GitHub Actions hacia GitHub Pages</h3>
+        <p>El workflow tiene dos jobs. <code>validate</code> revisa el HTML; <code>deploy</code> depende de él y solo se ejecuta en <code>main</code>. El sitio se empaqueta como artefacto y se publica en el entorno <code>github-pages</code>, que conserva el historial de despliegues. No se almacena ninguna credencial: el permiso <code>id-token: write</code> habilita la emisión de un token OIDC temporal en cada ejecución.</p>
+        <pre><code>deploy:
+  needs: validate
+  environment: github-pages
+  steps:
+    - uses: actions/upload-pages-artifact@v3
+    - uses: actions/deploy-pages@v4</code></pre>
+        <h3><span class="num">2.2</span>GitLab CI hacia GitLab Pages</h3>
+        <p>El pipeline tiene dos etapas. <code>validate</code> se ejecuta en un contenedor de Node; <code>pages</code> reemplaza las variables del HTML y entrega la carpeta <code>public</code>. GitLab reconoce el nombre del job y publica el sitio; durante la ejecución agrega por su cuenta el job <code>pages:deploy</code>. La regla <code>if</code> restringe la publicación a la rama principal.</p>
+        <pre><code>pages:
+  stage: deploy
+  artifacts:
+    paths: [public]
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH</code></pre>
+        <p>Los archivos completos están en el <a href="https://github.com/jhon-avila135/investigacion-versionamiento/blob/main/.github/workflows/deploy.yml">workflow de GitHub</a> y en el <a href="https://gitlab.com/grupo2-versionamiento-uce/investigacion-versionamiento/-/blob/main/.gitlab-ci.yml">archivo de GitLab CI</a>.</p>
+      </section>
 
-    <section class="bloque" id="reglas">
-      <p class="eyebrow">3 · Reglas</p>
-      <h2>Cómo protege cada uno la rama principal</h2>
-      <div class="grid">
-        <article class="tarjeta github">
-          <span class="etiqueta">GitHub · Rulesets</span>
-          <h3>Lo que activamos</h3>
-          <p>Un ruleset llamado proteger-main: PR obligatorio, el check validate obligatorio, bloqueo de force push y de borrado. Sin lista de excepciones, así que ni el dueño del repositorio puede saltárselo. Los rulesets se pueden apilar y gana la regla más estricta.</p>
-        </article>
-        <article class="tarjeta gitlab">
-          <span class="etiqueta">GitLab · Ramas protegidas</span>
-          <h3>Lo que trae y lo que cuesta</h3>
-          <p>main nace protegida: solo Maintainers hacen push o merge y no se permite force push. "Pipelines must succeed" es gratis; las reglas de aprobación obligatorias, CODEOWNERS y push rules son de Premium.</p>
-        </article>
-      </div>
-      <p><strong>Detalle de planes que casi nadie menciona:</strong> en GitHub Free las ramas protegidas, los revisores obligatorios y CODEOWNERS funcionan solo en repositorios públicos. Para usarlos en repositorios privados se necesita GitHub Pro, que es justo lo que da GitHub Education a los estudiantes verificados.</p>
-    </section>
+      <section class="seccion" id="reglas">
+        <h2><span class="num">3.</span>Reglas de protección</h2>
+        <div class="tabla">
+          <table>
+            <caption><strong>Tabla 2.</strong> Mecanismos para proteger la rama principal.</caption>
+            <thead>
+              <tr><th scope="col">Mecanismo</th><th scope="col">GitHub</th><th scope="col">GitLab</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Configuración</td><td>Rulesets (varios a la vez; prevalece la regla más estricta)</td><td>Ramas protegidas</td></tr>
+              <tr><td>Pull o merge request obligatorio</td><td>Sí</td><td>Sí, mediante permisos de push por rol</td></tr>
+              <tr><td>Exigir CI aprobado</td><td>Status checks obligatorios</td><td>Pipelines must succeed</td></tr>
+              <tr><td>Aprobaciones obligatorias</td><td>Incluidas</td><td>Plan Premium</td></tr>
+              <tr><td>CODEOWNERS</td><td>Incluido</td><td>Plan Premium</td></tr>
+              <tr><td>Bloqueo de force push</td><td>Sí</td><td>Sí, por defecto</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>En GitHub Free, las ramas protegidas, los revisores obligatorios y CODEOWNERS solo se aplican a repositorios públicos; en repositorios privados requieren GitHub Pro, plan incluido en GitHub Education.</p>
+        <p>En el proyecto se configuró la regla <code>proteger-main</code> sin lista de excepciones, de modo que ni el propietario del repositorio puede omitirla.</p>
+      </section>
 
-    <section class="bloque" id="variables">
-      <p class="eyebrow">4 · Variables</p>
-      <h2>Variables y gestión de despliegues</h2>
-      <div class="tabla">
-        <table>
-          <thead>
-            <tr><th scope="col">Tema</th><th scope="col">GitHub</th><th scope="col">GitLab</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Niveles</td><td>Organización, repositorio y environment</td><td>Instancia, grupo (heredable a subgrupos) y proyecto</td></tr>
-            <tr><td>Datos sensibles</td><td>secrets: cifrados y ocultos en los logs</td><td>Masked, o Masked and hidden si tampoco se deben ver en la configuración</td></tr>
-            <tr><td>Configuración</td><td>vars.NOMBRE, visibles</td><td>Variables visibles; también de tipo File</td></tr>
-            <tr><td>Proteger producción</td><td>Environments con revisores obligatorios y ramas permitidas</td><td>Protected: la variable solo existe en ramas o tags protegidos</td></tr>
-            <tr><td>Predefinidas que usamos</td><td>GITHUB_SHA</td><td>CI_COMMIT_SHORT_SHA, CI_DEFAULT_BRANCH</td></tr>
-            <tr><td>Despliegues simultáneos</td><td>concurrency: group: pages</td><td>resource_group</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p>En nuestro sitio, el pie de página se llena durante el despliegue: el commit sale de una variable predefinida y el entorno, de una variable propia llamada ENTORNO. En GitLab la marcamos como protegida: si alguien corre un pipeline en una rama de prueba, ENTORNO no existe ahí. Así se evita en la vida real que una rama cualquiera vea credenciales de producción.</p>
-      <p><strong>Rollback:</strong> volver atrás no es "subir la versión anterior a mano". Se hace git revert del cambio y el mismo pipeline publica la corrección. GitHub incluso tiene un botón Revert en cada PR fusionado.</p>
-    </section>
+      <section class="seccion" id="variables">
+        <h2><span class="num">4.</span>Variables y gestión de despliegues</h2>
+        <div class="tabla">
+          <table>
+            <caption><strong>Tabla 3.</strong> Gestión de variables y despliegues.</caption>
+            <thead>
+              <tr><th scope="col">Aspecto</th><th scope="col">GitHub</th><th scope="col">GitLab</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Niveles</td><td>Organización, repositorio y entorno</td><td>Instancia, grupo (heredable) y proyecto</td></tr>
+              <tr><td>Datos sensibles</td><td><code>secrets</code>, cifrados y ocultos en los registros</td><td>Variables <em>masked</em> o <em>masked and hidden</em></td></tr>
+              <tr><td>Configuración no sensible</td><td><code>vars</code></td><td>Variables visibles o de tipo archivo</td></tr>
+              <tr><td>Protección de producción</td><td>Entornos con revisores y ramas permitidas</td><td>Variables protegidas: solo existen en ramas o etiquetas protegidas</td></tr>
+              <tr><td>Variables predefinidas usadas</td><td><code>GITHUB_SHA</code></td><td><code>CI_COMMIT_SHORT_SHA</code>, <code>CI_DEFAULT_BRANCH</code></td></tr>
+              <tr><td>Despliegues simultáneos</td><td><code>concurrency</code></td><td><code>resource_group</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>El pie de página del sitio se completa durante el despliegue: el commit proviene de una variable predefinida y el entorno, de la variable propia <code>ENTORNO</code>. En GitLab esta variable es protegida, por lo que un pipeline ejecutado en una rama de prueba no la recibe. Es el mismo mecanismo que se usa para que una rama sin revisión no acceda a credenciales de producción.</p>
+        <p>La reversión de un cambio publicado se hace con <code>git revert</code>: se crea un commit que deshace el anterior y el mismo pipeline publica la corrección. GitHub ofrece además la opción <em>Revert</em> en cada pull request fusionado.</p>
+      </section>
 
-    <section class="bloque" id="comandos">
-      <p class="eyebrow">5 · Comandos</p>
-      <h2>Los comandos que de verdad usamos</h2>
-      <p>No ponemos aquí git add ni git commit, que todos conocen. Estos son los que necesitamos para trabajar con dos plataformas y con main protegida:</p>
-      <div class="tabla">
-        <table>
-          <thead>
-            <tr><th scope="col">Comando</th><th scope="col">Para qué lo usamos</th></tr>
-          </thead>
-          <tbody>
-            <tr><td><code>git remote add gitlab URL</code></td><td>Tener dos remotos: origin (GitHub) y gitlab.</td></tr>
-            <tr><td><code>git push gitlab main</code></td><td>Llevar main a GitLab después de fusionar en GitHub; eso dispara su pipeline.</td></tr>
-            <tr><td><code>git config credential.https://github.com.username USUARIO</code></td><td>Obligar a que este repositorio use la cuenta institucional y no otra guardada en la PC.</td></tr>
-            <tr><td><code>git switch -c fix/prueba-validacion</code></td><td>Una rama por tarea; main no se toca directamente.</td></tr>
-            <tr><td><code>git rebase main</code></td><td>Poner una rama al día con main antes de abrir el PR.</td></tr>
-            <tr><td><code>git push --force-with-lease</code></td><td>Reescribir solo tu rama después del rebase, sin pisar trabajo ajeno. En main está bloqueado.</td></tr>
-            <tr><td><code>git revert HEAD</code></td><td>Deshacer un cambio publicado sin reescribir la historia.</td></tr>
-            <tr><td><code>git tag -a v1.0.0 -m "..."</code></td><td>Marcar la versión que se entrega; se sube a los dos remotos.</td></tr>
-            <tr><td><code>git log --oneline --graph</code></td><td>Ver ramas y merges para explicar el flujo.</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
+      <section class="seccion" id="comandos">
+        <h2><span class="num">5.</span>Comandos principales</h2>
+        <p>Además de las operaciones habituales (<code>add</code>, <code>commit</code>, <code>push</code>), el trabajo con dos plataformas y una rama protegida requirió los siguientes comandos:</p>
+        <div class="tabla">
+          <table>
+            <caption><strong>Tabla 4.</strong> Comandos utilizados en el proyecto.</caption>
+            <thead>
+              <tr><th scope="col">Comando</th><th scope="col">Propósito</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>git remote add gitlab URL</code></td><td>Registrar GitLab como segundo remoto junto a <code>origin</code>.</td></tr>
+              <tr><td><code>git push gitlab main</code></td><td>Replicar <code>main</code> en GitLab y activar su pipeline.</td></tr>
+              <tr><td><code>git config credential.https://github.com.username USUARIO</code></td><td>Asociar el repositorio a una cuenta específica.</td></tr>
+              <tr><td><code>git switch -c rama</code></td><td>Crear una rama por tarea.</td></tr>
+              <tr><td><code>git rebase main</code></td><td>Actualizar una rama con los cambios de <code>main</code> antes del pull request.</td></tr>
+              <tr><td><code>git push --force-with-lease</code></td><td>Reescribir solo la rama propia tras un rebase, sin sobrescribir trabajo ajeno.</td></tr>
+              <tr><td><code>git revert HEAD</code></td><td>Deshacer un cambio publicado sin reescribir el historial.</td></tr>
+              <tr><td><code>git tag -a v1.0.0 -m "mensaje"</code></td><td>Marcar la versión de entrega en ambos remotos.</td></tr>
+              <tr><td><code>git log --oneline --graph</code></td><td>Visualizar ramas y fusiones.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
 
-    <section class="bloque" id="educacion">
-      <p class="eyebrow">6 · Correo institucional</p>
-      <h2>Cuenta educativa frente a cuenta normal</h2>
-      <p>Usamos cuentas con el correo de la UCE en las dos plataformas, y descubrimos que el beneficio es muy distinto: <strong>GitHub le da beneficios al estudiante; GitLab se los da a la institución.</strong></p>
-      <div class="tabla">
-        <table>
-          <thead>
-            <tr><th scope="col">Aspecto</th><th scope="col">GitHub Free</th><th scope="col">GitHub con Education (estudiante)</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Quién lo pide</td><td>Cualquiera</td><td>El estudiante, con correo académico verificado y un documento que pruebe la matrícula</td></tr>
-            <tr><td>Plan</td><td>Free</td><td>Beneficios de GitHub Pro mientras dure la verificación</td></tr>
-            <tr><td>Reglas en repos privados</td><td>No (solo públicos)</td><td>Sí: ramas protegidas, revisores obligatorios, CODEOWNERS y wikis</td></tr>
-            <tr><td>Cómputo de Actions</td><td>Cuota mensual de Free (los repos públicos no la consumen)</td><td>Cuota mayor de Pro</td></tr>
-            <tr><td>Codespaces</td><td>120 horas-núcleo al mes</td><td>180 horas-núcleo al mes</td></tr>
-            <tr><td>Copilot</td><td>Plan gratuito con límites</td><td>Copilot con funciones premium, gratis</td></tr>
-            <tr><td>Extras</td><td>Ninguno</td><td>Student Developer Pack: créditos de nube, dominios y herramientas de terceros</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="tabla">
-        <table>
-          <thead>
-            <tr><th scope="col">Aspecto</th><th scope="col">GitLab Free</th><th scope="col">GitLab for Education</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Quién lo pide</td><td>Cualquiera</td><td>Solo docentes o personal de la universidad, con el correo institucional. GitLab no entrega licencias a estudiantes.</td></tr>
-            <tr><td>Plan</td><td>Free</td><td>Ultimate con asientos ilimitados, por un año renovable</td></tr>
-            <tr><td>Minutos de CI</td><td>400 al mes por grupo</td><td>50 000 al mes</td></tr>
-            <tr><td>Almacenamiento</td><td>10 GiB por proyecto (repositorio y LFS)</td><td>Según la licencia Ultimate</td></tr>
-            <tr><td>Uso permitido</td><td>Libre</td><td>Solo enseñanza e investigación no comercial; no para administrar la universidad</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p><strong>Qué significa para nosotros:</strong> en GitHub, el correo de la UCE nos da un plan mejor desde hoy. En GitLab, nuestra cuenta con correo institucional es una cuenta Free normal; para tener Ultimate, un docente tendría que solicitar la licencia para la universidad. Lo malo de los dos: los beneficios dependen de seguir verificado o de renovar cada año, y si se pierden, los proyectos que dependan de funciones de pago dejan de funcionar igual.</p>
-    </section>
+      <section class="seccion" id="educacion">
+        <h2><span class="num">6.</span>Cuentas educativas</h2>
+        <p>El grupo usa cuentas con correo institucional en ambas plataformas. Los beneficios difieren en un punto central: GitHub los otorga al estudiante; GitLab, a la institución.</p>
+        <div class="tabla">
+          <table>
+            <caption><strong>Tabla 5.</strong> GitHub Free frente a GitHub Education.</caption>
+            <thead>
+              <tr><th scope="col">Aspecto</th><th scope="col">GitHub Free</th><th scope="col">GitHub Education</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Solicitante</td><td>Cualquier usuario</td><td>Estudiante con correo académico verificado y comprobante de matrícula</td></tr>
+              <tr><td>Plan</td><td>Free</td><td>Beneficios de GitHub Pro mientras se mantenga la verificación</td></tr>
+              <tr><td>Reglas en repositorios privados</td><td>No disponibles</td><td>Ramas protegidas, revisores obligatorios, CODEOWNERS y wikis</td></tr>
+              <tr><td>Codespaces</td><td>120 horas-núcleo al mes</td><td>180 horas-núcleo al mes</td></tr>
+              <tr><td>Copilot</td><td>Plan gratuito con límites</td><td>Funciones premium sin costo</td></tr>
+              <tr><td>Beneficios adicionales</td><td>Ninguno</td><td>Student Developer Pack</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="tabla">
+          <table>
+            <caption><strong>Tabla 6.</strong> GitLab Free frente a GitLab for Education.</caption>
+            <thead>
+              <tr><th scope="col">Aspecto</th><th scope="col">GitLab Free</th><th scope="col">GitLab for Education</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Solicitante</td><td>Cualquier usuario</td><td>Docentes o personal de la institución; no se emiten licencias a estudiantes</td></tr>
+              <tr><td>Plan</td><td>Free</td><td>Ultimate con usuarios ilimitados, renovable cada año</td></tr>
+              <tr><td>Minutos de CI</td><td>400 al mes por grupo</td><td>50 000 al mes</td></tr>
+              <tr><td>Almacenamiento</td><td>10 GiB por proyecto</td><td>Según la licencia</td></tr>
+              <tr><td>Uso permitido</td><td>Sin restricción</td><td>Docencia e investigación no comercial</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>En consecuencia, el correo institucional mejora de inmediato las condiciones en GitHub, mientras que en GitLab la cuenta del estudiante funciona como una cuenta Free; acceder a Ultimate depende de una solicitud de la universidad. En ambos casos los beneficios están sujetos a renovación, y su pérdida afecta a los proyectos que dependan de funciones de pago.</p>
+      </section>
 
-    <section class="bloque" id="practico">
-      <p class="eyebrow">7 · Ejemplo práctico</p>
-      <h2>Este mismo sitio</h2>
-      <p>El sitio que estás leyendo es el ejemplo: lo versionamos, lo protegimos y lo desplegamos en las dos plataformas. En la página de inicio contamos <a href="index.html#como-lo-hicimos">cómo lo hicimos paso a paso</a>, con los enlaces a cada pull request y a cada pipeline, y las mediciones de tiempo.</p>
-    </section>
+      <section class="seccion" id="hallazgos">
+        <h2><span class="num">7.</span>Hallazgos de la implementación</h2>
+        <dl>
+          <dt>Validación incompleta</dt>
+          <dd>El preset <code>html-validate:standard</code> no revisa accesibilidad: una imagen sin texto alternativo aprobaba la validación. Se detectó al probar la regla y se corrigió con el preset <code>a11y</code> (PR #2).</dd>
+          <dt>Commit publicado distinto del local</dt>
+          <dd>Al fusionar un pull request, GitHub crea un commit de merge con otro identificador. La medición se basa por ello en la versión publicada, no en el commit local.</dd>
+          <dt>Visibilidad heredada en GitLab</dt>
+          <dd>Un proyecto público no puede pertenecer a un grupo privado; fue necesario cambiar la visibilidad del grupo.</dd>
+          <dt>Propagación de GitLab Pages</dt>
+          <dd>Durante algunos segundos posteriores a un despliegue, el sitio respondió con la versión nueva o la anterior según el servidor. La medición se ajustó para exigir la versión esperada en tres lecturas consecutivas y se descartaron dos registros inválidos.</dd>
+          <dt>Credenciales en el equipo</dt>
+          <dd>El administrador de credenciales tenía guardada una cuenta personal. Sin fijar el usuario por repositorio, los cambios se habrían enviado con otra identidad.</dd>
+          <dt>Dependencia del proveedor</dt>
+          <dd>El código se replica con un push, pero los pipelines no son compatibles entre plataformas y deben escribirse por separado.</dd>
+        </dl>
+      </section>
 
-    <section class="bloque" id="hallazgos">
-      <p class="eyebrow">8 · Hallazgos</p>
-      <h2>Lo que no esperábamos</h2>
-      <dl>
-        <dt>El validador estaba configurado a medias</dt>
-        <dd>Al preparar la prueba del error, una imagen sin texto alternativo pasó la validación: el preset html-validate:standard no revisa accesibilidad. Lo descubrimos probando la regla, no leyendo. Lo corregimos con el preset a11y en el PR #2.</dd>
-        <dt>El commit que se publica no es el de tu PC</dt>
-        <dd>Al fusionar un PR, GitHub crea un commit de merge con otro identificador. Por eso nuestro script de medición no compara contra el commit local: espera a que cambie la versión publicada.</dd>
-        <dt>Un proyecto público no puede vivir en un grupo privado</dt>
-        <dd>En GitLab la visibilidad se hereda: tuvimos que hacer público el grupo antes de crear el proyecto público.</dd>
-        <dt>La PC guarda la cuenta equivocada</dt>
-        <dd>El administrador de credenciales tenía una cuenta personal guardada. Si no se fija el usuario por repositorio, los commits se suben con otra identidad.</dd>
-        <dt>GitLab Pages tarda en ponerse de acuerdo</dt>
-        <dd>Justo después de un despliegue, el sitio de GitLab respondió unos segundos con la versión nueva y otros con la anterior, según el servidor que atendía. Por eso nuestro script solo da por publicado un cambio cuando lee la versión esperada tres veces seguidas.</dd>
-        <dt>Los pipelines no se migran</dt>
-        <dd>El código pasa de una plataforma a otra con un push; los pipelines hay que escribirlos de nuevo. Esa es la dependencia del proveedor que más pesa.</dd>
-      </dl>
-    </section>
+      <section class="seccion" id="seleccion">
+        <h2><span class="num">8.</span>Criterios de selección</h2>
+        <div class="tabla">
+          <table>
+            <caption><strong>Tabla 7.</strong> Escenarios en los que conviene cada plataforma.</caption>
+            <thead>
+              <tr><th scope="col">Escenario</th><th scope="col">Plataforma sugerida</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Proyectos académicos, código abierto y portafolio</td><td>GitHub</td></tr>
+              <tr><td>Aprovechamiento de beneficios para estudiantes</td><td>GitHub</td></tr>
+              <tr><td>Ecosistema amplio de acciones e integraciones</td><td>GitHub</td></tr>
+              <tr><td>Instalación en servidores propios (banca, salud, sector público)</td><td>GitLab</td></tr>
+              <tr><td>Ciclo completo en una sola herramienta</td><td>GitLab</td></tr>
+              <tr><td>Estructura de grupos con herencia de permisos y variables</td><td>GitLab</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Las plataformas no son excluyentes. En este proyecto GitHub es el repositorio principal y GitLab, un segundo destino de despliegue.</p>
+      </section>
 
-    <section class="bloque" id="elegir">
-      <p class="eyebrow">9 · Decisión</p>
-      <h2>Cuándo elegir cada uno</h2>
-      <div class="grid">
-        <article class="tarjeta github"><span class="etiqueta">GitHub si…</span><p>el proyecto es de estudiantes o de código abierto, se quiere portafolio y comunidad, se aprovecha el Student Pack o se necesita el ecosistema de acciones.</p></article>
-        <article class="tarjeta gitlab"><span class="etiqueta">GitLab si…</span><p>la organización debe instalarlo en sus servidores (banca, salud, gobierno), quiere todo el ciclo en una herramienta, necesita grupos con herencia o la universidad ya tiene la licencia educativa.</p></article>
-      </div>
-      <p class="nota">No es excluyente: nosotros usamos GitHub como fuente de verdad y GitLab como segundo destino de despliegue.</p>
-    </section>
+      <section class="seccion" id="conclusiones">
+        <h2><span class="num">9.</span>Conclusiones</h2>
+        <ol>
+          <li>GitHub y GitLab resuelven las mismas necesidades con modelos distintos: eventos y ecosistema frente a etapas y plataforma integrada.</li>
+          <li>Una regla de protección solo es efectiva si se verifica: la validación del proyecto omitía la accesibilidad hasta que se probó con un caso real.</li>
+          <li>El correo institucional tiene más impacto en GitHub; en GitLab, el beneficio depende de una gestión de la universidad.</li>
+        </ol>
+      </section>
 
-    <section class="bloque" id="fuentes">
-      <p class="eyebrow">10 · Sustento</p>
-      <h2>Fuentes</h2>
-      <ul>
-        <li>GitHub Docs. GitHub's plans; About rulesets; Using secrets in GitHub Actions; Using custom workflows with GitHub Pages. docs.github.com</li>
-        <li>GitHub Docs. About GitHub Education for students; Apply to GitHub Education as a student. docs.github.com/education</li>
-        <li>GitLab. GitLab for Education Program. about.gitlab.com/solutions/education/join</li>
-        <li>GitLab Docs. Compute minutes; Storage; CI/CD variables; Protected branches; GitLab Pages. docs.gitlab.com</li>
-        <li>html-validate. Presets standard y a11y; regla wcag/h37. html-validate.org</li>
-        <li>Forsgren, N., Humble, J. y Kim, G. (2018). Accelerate. IT Revolution.</li>
-        <li>ISO/IEC/IEEE 29148:2018. Requirements engineering.</li>
-      </ul>
-      <p class="nota">Los planes y beneficios cambian con frecuencia; los datos son de noviembre de 2026.</p>
-    </section>
-  </main>
+      <section class="seccion" id="referencias">
+        <h2><span class="num">10.</span>Referencias</h2>
+        <ul>
+          <li>Forsgren, N., Humble, J. y Kim, G. (2018). <em>Accelerate: The Science of Lean Software and DevOps</em>. IT Revolution.</li>
+          <li>GitHub. (2025). <em>Octoverse 2025</em>. https://github.blog/news-insights/octoverse/</li>
+          <li>GitHub Docs. (s. f.). <em>GitHub's plans</em>; <em>About rulesets</em>; <em>Using secrets in GitHub Actions</em>; <em>Using custom workflows with GitHub Pages</em>. https://docs.github.com</li>
+          <li>GitHub Docs. (s. f.). <em>About GitHub Education for students</em>. https://docs.github.com/education</li>
+          <li>GitLab. (s. f.). <em>GitLab for Education Program</em>. https://about.gitlab.com/solutions/education/join/</li>
+          <li>GitLab Docs. (s. f.). <em>CI/CD variables</em>; <em>Protected branches</em>; <em>Compute minutes</em>; <em>GitLab Pages</em>. https://docs.gitlab.com</li>
+          <li>ISO/IEC/IEEE. (2018). <em>ISO/IEC/IEEE 29148:2018. Systems and software engineering — Requirements engineering</em>.</li>
+          <li>Stack Overflow. (2022). <em>Developer Survey 2022</em>. https://survey.stackoverflow.co/2022</li>
+        </ul>
+        <p class="nota">Los planes y beneficios citados corresponden a noviembre de 2026 y pueden cambiar.</p>
+      </section>
+    </main>
+  </div>
 
-  <footer>
-    <p>Grupo 2 · Gestión de versionamiento · Arquitectura de Software · Universidad Central del Ecuador</p>
-    <p>Versión: <code>__VERSION__</code> · Plataforma: __PLATAFORMA__ · Entorno: __ENTORNO__ · Publicado: __FECHA__</p>
+  <footer class="pie">
+    <div class="interior">
+      <p>Grupo 2 · Arquitectura de Software · Universidad Central del Ecuador</p>
+      <p>Versión <code>__VERSION__</code> · __PLATAFORMA__ · Entorno: __ENTORNO__ · Publicado: __FECHA__</p>
+    </div>
   </footer>
 </body>
 </html>
